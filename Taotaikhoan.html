@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="profile.js"></script>
+    <link rel="stylesheet" href="All.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
+    <title>Tạo tài khoản mới</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <div>
+                <a href="webbansach.html"><img src="ảnh/vnb_logo_2x.png" alt="" /></a>
+            </div>
+            <div>
+                <input class="searchItem" type="search" placeholder="Tìm kiếm tựa sách, tác giả" />
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <button class="search_btn" type="submit">Tìm sách</button>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <a href=""></a>
+            <div>
+                <a class="sigup_btn" href="Taotaikhoan.html">Đăng kí</a>
+                <button class="login_btn" onclick="login()">Đăng nhập</button>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div>
+            <i class="fa-solid fa-bars-staggered"></i>
+            <span class="listBook"> Danh mục sách</span>
+        </div>
+        <div>
+            <i class="fa-solid fa-phone"></i>
+            <span class="Hotline">Hotline: 1900 6401</span>
+            <i class="fa-solid fa-comments"></i>
+            <a href="" class="supportOnl">Hỗ trợ trực tuyến</a>
+        </div>
+    </nav>
+    <div class="title">
+        <span> <a href="webbansach.html">Trang chủ</a> > Tạo tài khoản mới</span>
+    </div>
+    <div class="register_form">
+        <div>
+            <h2 class="titleModal">Đăng kí tài khoản</h2>
+            <div class="input nameInput">
+                <label for="">Họ và tên</label><input type="text" required>
+            </div>
+            <div class="input passwordInput">
+                <label for="">Mật khẩu</label><input type="password" required>
+            </div>
+            <div class="input emailInput">
+                <label for="">Email</label>
+                <input type="email" required>
+            </div>
+            <div class="input borndateInput">
+                <label for="">Ngày Sinh</label><input type="date" required>
+            </div>
+            <div class="input genderInput">
+                <label for="">Giới tính</label>
+                <input type="radio" name="gender" value="1">Nam
+                <input type="radio" name="gender" value="0">Nữ
+            </div>
+
+            <div class="dangki_btn">
+                <button type="submit" value="Đăng kí">Đăng kí</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

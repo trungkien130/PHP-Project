@@ -1,0 +1,314 @@
+/* header css */
+.searchItem {
+    position: absolute;
+    top: 1.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.364);
+    left: 20rem;
+    width: 40%;
+    padding: 10px 100px 10px 40px;
+    border-radius: 1rem;
+    background: transparent;
+}
+
+.search_btn {
+    position: absolute;
+    top: 1.6rem;
+    width: 80px;
+    left: 58%;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 1rem;
+    padding: 5px;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+}
+
+.fa-solid {
+    position: absolute;
+    color: gray;
+    top: 2rem;
+    left: 26%;
+}
+
+.sigup_btn {
+    position: absolute;
+    top: 2rem;
+    left: 75%;
+    color: #0f0f0f;
+    padding: 0 6px;
+    line-height: 12px;
+    height: 13px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.login_btn {
+    position: absolute;
+    top: 2rem;
+    left: 80%;
+    color: #0f0f0f;
+    padding: 0 6px;
+    line-height: 12px;
+    height: 13px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.fa-cart-shopping {
+    position: absolute;
+    color: green;
+    font-size: 30px;
+    top: 1.4rem;
+    left: 70%;
+}
+
+header {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+nav {
+    margin-top: 1.5rem;
+    background-color: green;
+    width: 100%;
+    min-height: 40px;
+}
+
+.fa-bars-staggered {
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 25px;
+    color: white;
+}
+
+.fa-angle-down {
+    position: relative;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 25px;
+    color: white;
+}
+
+.listBook {
+    color: white;
+    font-size: 18px;
+    font-family: 'Montserrat-Light' !important;
+    line-height: 30px;
+    margin-left: 40px;
+}
+
+.fa-phone {
+    position: relative;
+    top: -1.3rem;
+    left: 73%;
+    color: white;
+}
+
+.Hotline {
+    position: relative;
+    top: -1.3rem;
+    padding-right: 10px;
+    left: 73%;
+    color: white;
+    border-right: 2px solid white;
+}
+
+.fa-comments {
+    position: relative;
+    top: -1.3rem;
+    left: 74%;
+    color: white;
+}
+
+.supportOnl {
+    position: relative;
+    top: -1.3rem;
+    left: 74%;
+    color: white;
+    text-decoration: none;
+}
+/* header css */
+/* đăng nhập đăng xuất */
+.title {
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    color: #232323;
+    margin-top: 3%;
+    padding: 1rem;
+}
+
+.title>span>a {
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    color: #232323;
+    text-decoration: none;
+}
+
+.register_form {
+    width: 1069;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+
+}
+
+.input {
+    margin-bottom: 15px;
+    padding-right: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.dangki_btn button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dangki_btn button:hover {
+    background-color: #45a049;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    margin-top: 1rem;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    margin: -22px -16px 0px 0px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login_comfirm {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #24890b;
+    color: white;
+    border: 1px solid #24890b;
+    cursor: pointer;
+}
+/* đăng nhập đăng xuất */
+.titleModal {
+    background-color: #24890b;
+    margin-top: 0rem;
+    padding: 10px;
+    color: white;
+}
+.fa-angle-right{
+    position: absolute;
+    top: 0.7rem;
+    left:15rem ;
+}
+.Listtitle li {
+    list-style-type: none;
+}
+.menu-item {
+    position: relative;
+    border: 1px solid black;
+    width: 20%;
+    padding: 10px;
+    margin-left: -2.5rem;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 16.6rem;
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #ccc;
+}
+.menu-item:hover{
+    color:  green;
+    box-shadow: inset;
+}
+.menu-item:hover .submenu {
+    display: block;
+
+}
+/* thay đổi thông tin khách hàng */
+.profile-show{
+    position: absolute;
+    width: 55%;
+    height: 80%;
+    padding: 10px 50px 20px 30px;
+    top: 9rem;
+    left:10rem ;
+    border: 1px solid;
+}
+.titleProfile{
+    color: #45a049;
+}
+.change_comfirm_btn{
+min-width: 135px;
+height: 40px;
+border-color: #24890b;
+background-color: #45a049;
+border:  solid;
+border-radius: 3px;
+color: #fff;
+}
+.change_btn{
+    position: relative   ;
+    top:1rem;
+    margin-left: 85%;
+}
+
+
+/* thay đổi thông tin khách hàng */
