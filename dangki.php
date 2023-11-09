@@ -34,7 +34,7 @@
         $hashed_password = password_hash($MAT_KHAU, PASSWORD_DEFAULT);
         $sql_insert = "INSERT INTO `dangki` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`) ";
         $sql_insert .= "VALUES ('$HO_TEN', '$hashed_password', '$DIEN_THOAI', '$EMAIL', '$NGAY_SINH', '$GIOI_TINH')";
-
+        
         if ($conn->query($sql_insert)) {
             $success_message = "Đăng kí thành công";
             header(("Location:webbansach.php"));

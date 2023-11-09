@@ -19,15 +19,15 @@
     $success_message = "";
     $result = $conn->query($sql);
     if(isset($_POST["login_btn"])){
-        $username=$_POST["username"];
-        $password=$_POST["password"];
-        $sql = "SELECT * FROM dangki WHERE EMAIL='$username'";
+        $Email=$_POST["Email"];
+        $MAT_KHAU=$_POST["MAT_KHAU"];
+        $sql = "SELECT * FROM dangki WHERE EMAIL='$Email'";
         $result = $conn->query($sql);
         if($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            if(password_verify($password, $row["MAT_KHAU"])) {
+            if(password_verify($MAT_KHAU, $row["MAT_KHAU"])) {
                 session_start();
-                $_SESSION["user_id"] = $row["ID"];
+                $_SESSION[""] = $row["ID"];
                 header("Location: webbansach.php");
                 exit();
             } else {
@@ -50,11 +50,11 @@
                 <form class="login_content">
                     <div class="input inputUsername">
                         <label for="username">Email:</label>
-                        <input type="text" id="username" name="username" required><br>
+                        <input type="text" id="username" name="Email" required><br>
                     </div>
                     <div class="input inputPassword">
                         <label for="password">Mật khẩu:</label>
-                        <input type="password" id="password" name="password" required><br>
+                        <input type="password" id="password" name="MAT_KHAU" required><br>
                     </div>
                     <button type="submit" class="login_comfirm" name="login_btn" onclick="confirm_login()">Đăng Nhập</button>
                 </form>
