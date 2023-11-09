@@ -30,34 +30,6 @@
     left: 26%;
 }
 
-.sigup_btn {
-    position: absolute;
-    top: 2rem;
-    left: 75%;
-    color: #0f0f0f;
-    padding: 0 6px;
-    line-height: 12px;
-    height: 13px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.login_btn {
-    position: absolute;
-    top: 2rem;
-    left: 80%;
-    color: #0f0f0f;
-    padding: 0 6px;
-    line-height: 12px;
-    height: 13px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
 .fa-cart-shopping {
     position: absolute;
     color: green;
@@ -132,8 +104,56 @@ nav {
     color: white;
     text-decoration: none;
 }
+
 /* header css */
 /* đăng nhập đăng xuất */
+.thongtinkh {
+    position: absolute;
+    position: absolute;
+    top: 2rem;
+    left: 87%;
+    color: #0f0f0f;
+    padding: 0 6px;
+    line-height: 12px;
+    height: 13px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.thongtinkh:hover{
+    color: red;
+}
+
+.sigup_btn {
+    position: absolute;
+    top: 2rem;
+    left: 75%;
+    color: #0f0f0f;
+    padding: 0 6px;
+    line-height: 12px;
+    height: 13px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.login_btn {
+    position: absolute;
+    top: 2rem;
+    left: 80%;
+    color: #0f0f0f;
+    padding: 0 6px;
+    line-height: 12px;
+    height: 13px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .title {
     font-family: "Roboto", sans-serif;
     font-size: 13px;
@@ -241,6 +261,7 @@ input[type="radio"] {
     border: 1px solid #24890b;
     cursor: pointer;
 }
+
 /* đăng nhập đăng xuất */
 .titleModal {
     background-color: #24890b;
@@ -248,14 +269,17 @@ input[type="radio"] {
     padding: 10px;
     color: white;
 }
-.fa-angle-right{
+
+.fa-angle-right {
     position: absolute;
     top: 0.7rem;
-    left:15rem ;
+    left: 15rem;
 }
+
 .Listtitle li {
     list-style-type: none;
 }
+
 .menu-item {
     position: relative;
     border: 1px solid black;
@@ -274,39 +298,45 @@ input[type="radio"] {
     padding: 30px;
     border: 1px solid #ccc;
 }
-.menu-item:hover{
-    color:  green;
+
+.menu-item:hover {
+    color: green;
     box-shadow: inset;
 }
+
 .menu-item:hover .submenu {
     display: block;
 
 }
+
 /* thay đổi thông tin khách hàng */
-.profile-show{
+.profile-show {
     position: absolute;
     width: 55%;
     height: 80%;
     padding: 10px 50px 20px 30px;
     top: 9rem;
-    left:10rem ;
+    left: 10rem;
     border: 1px solid;
 }
-.titleProfile{
+
+.titleProfile {
     color: #45a049;
 }
-.change_comfirm_btn{
-min-width: 135px;
-height: 40px;
-border-color: #24890b;
-background-color: #45a049;
-border:  solid;
-border-radius: 3px;
-color: #fff;
+
+.change_comfirm_btn {
+    min-width: 135px;
+    height: 40px;
+    border-color: #24890b;
+    background-color: #45a049;
+    border: solid;
+    border-radius: 3px;
+    color: #fff;
 }
-.change_btn{
-    position: relative   ;
-    top:1rem;
+
+.change_btn {
+    position: relative;
+    top: 1rem;
     margin-left: 85%;
 }
 

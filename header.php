@@ -28,6 +28,7 @@
             <div>
                 <button class="sigup_btn" onclick="sigup()">Đăng kí</button>
                 <button class="login_btn" onclick="login()">Đăng nhập</button>
+                <a class="thongtinkh" href="khachhang-profile.php">Thông tin khách hàng</a>
             </div>
         </div>
     </header>

@@ -14,35 +14,35 @@
 <body>
     <?php
     include("ketnoi.php");
-    $sql = "SELECT * FROM DANGKI WHERE 1=1 ";
+
     $error_message = "";
-    $success_message = "";
-    $result = $conn->query($sql);
-    if(isset($_POST["login_btn"])){
-        $Email=$_POST["Email"];
-        $MAT_KHAU=$_POST["MAT_KHAU"];
-        $sql = "SELECT * FROM dangki WHERE EMAIL='$Email'";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if(password_verify($MAT_KHAU, $row["MAT_KHAU"])) {
-                session_start();
-                $_SESSION[""] = $row["ID"];
-                header("Location: webbansach.php");
-                exit();
-            } else {
-                // Sai mật khẩu
-                echo "Sai tên đăng nhập hoặc mật khẩu.";
+    if (isset($_POST["login_btn"])) {
+        $EMAIL = $_POST["EMAIL"];
+        $MAT_KHAU = $_POST["MAT_KHAU"];
+
+        $sql_check = "SELECT EMAIL, MAT_KHAU FROM dangki WHERE EMAIL ='$EMAIL' AND MAT_KHAU='$MAT_KHAU'";
+        $res_check = $conn->query($sql_check);
+
+        if ($res_check->num_rows > 0) {
+            $chk = $_POST['chkRemeber'];
+            echo "rem=" . $chk;
+            if (isset($chk)) {
+                setcookie('taikhoan', $usr, time() + 60 * 60);
             }
+            header("Location: webbansach.php");
         } else {
-            // Tên đăng nhập không tồn tại
-            echo "Sai tên đăng nhập hoặc mật khẩu.";
+            $error_message = "Sai mật khẩu hoặc tên đăng nhập không tồn tại vui lòng kiểm tra lại!!";
         }
     }
-    
-    $conn->close(); // Đóng kết nối
     ?>
-    <form action="" method="get">
+
+    <?php if (!empty($error_message)) : ?>
+        <script>
+            alert("<?php echo $error_message; ?>");
+            window.location.href = "webbansach.php";
+        </script>
+    <?php endif; ?>
+    <form action="" method="post">
         <div id="loginModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="close_modal()">&times;</span>
@@ -50,7 +50,7 @@
                 <form class="login_content">
                     <div class="input inputUsername">
                         <label for="username">Email:</label>
-                        <input type="text" id="username" name="Email" required><br>
+                        <input type="text" id="username" name="EMAIL" required><br>
                     </div>
                     <div class="input inputPassword">
                         <label for="password">Mật khẩu:</label>

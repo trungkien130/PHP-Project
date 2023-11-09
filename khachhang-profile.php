@@ -15,11 +15,13 @@
     <?php
     include("ketnoi.php");
     require("header.php");
+
     $ID = 1; // Gán giá trị 1 cho biến $ID
     $sql_edit = "SELECT * FROM `DANGKI` WHERE ID ='$ID' ";
     $result_edit = $conn->query($sql_edit);
     $row_edit = $result_edit->fetch_array();
-        
+
+
     $sql = "SELECT * FROM DANGKI WHERE 1=1 ";
     $result = $conn->query($sql);
     $error_message = "";
