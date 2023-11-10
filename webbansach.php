@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="profile.js"></script>
-    <link rel="stylesheet" href="All.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
     <title>Vivabook.com</title>
 </head>
@@ -71,7 +71,9 @@
             </li>
         </ul>
     </div>
-
+    <div class="slice">
+        <img class="imgSlide" src="img/371474_loi-than-va-nhan-vien-van-phong-tap-2.jpg" alt="">
+    </div>
 
 
 </body>

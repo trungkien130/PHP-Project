@@ -104,7 +104,6 @@ nav {
     color: white;
     text-decoration: none;
 }
-
 /* header css */
 /* đăng nhập đăng xuất */
 .thongtinkh {
@@ -302,6 +301,7 @@ input[type="radio"] {
 .menu-item:hover {
     color: green;
     box-shadow: inset;
+    z-index: 1;
 }
 
 .menu-item:hover .submenu {
@@ -342,3 +342,18 @@ input[type="radio"] {
 
 
 /* thay đổi thông tin khách hàng */
+/* slide */
+.slice{
+    position: absolute;
+    left: 22%;
+    top: 9.2rem;
+    width: 75%;
+    height: 313px;
+    border: 1px solid black;
+    z-index: 0;
+}
+.imgSlide{
+    position: relative;
+    left: 20px;
+}
+/* slide */
