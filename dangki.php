@@ -71,7 +71,9 @@
                     <input type="radio" name="gender" value="1">Nam
                     <input type="radio" name="gender" value="0">Nữ
                 </div>
-
+                <div>
+                            <span class="userLogin" >Đã có tài khoản <button onclick="login()">Đăng nhập</button> </span>
+                        </div>
                 <div class="dangki_btn">
                     <button type="submit" name="sigup_btn" onclick="sigupconfirm()" value="Đăng kí">Đăng kí</button>
                 </div>

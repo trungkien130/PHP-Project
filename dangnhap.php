@@ -12,9 +12,9 @@
 </head>
 
 <body>
+
     <?php
     include("ketnoi.php");
-
     $error_message = "";
     if (isset($_POST["login_btn"])) {
         $EMAIL = $_POST["EMAIL"];
@@ -29,19 +29,21 @@
             if (isset($chk)) {
                 setcookie('taikhoan', $usr, time() + 60 * 60);
             }
+
             header("Location: webbansach.php");
         } else {
             $error_message = "Sai mật khẩu hoặc tên đăng nhập không tồn tại vui lòng kiểm tra lại!!";
         }
     }
     ?>
-
     <?php if (!empty($error_message)) : ?>
         <script>
-            alert("<?php echo $error_message; ?>");
-            window.location.href = "webbansach.php";
+            alert("<?php echo $error_message ?>")
+            $(document).ready(function () {
+            $("#loginModal").show()});
         </script>
     <?php endif; ?>
+
     <form action="" method="post">
         <div id="loginModal" class="modal">
             <div class="modal-content">
@@ -56,6 +58,9 @@
                         <label for="password">Mật khẩu:</label>
                         <input type="password" id="password" name="MAT_KHAU" required><br>
                     </div>
+                        <div>
+                            <span class="registerUser" >Chưa có tài khoản <button onclick="sigup()">Đăng kí ngay</button> </span>
+                        </div>
                     <button type="submit" class="login_comfirm" name="login_btn" onclick="confirm_login()">Đăng Nhập</button>
                 </form>
             </div>

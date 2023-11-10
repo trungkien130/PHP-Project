@@ -107,6 +107,35 @@ nav {
 
 /* header css */
 /* đăng nhập đăng xuất */
+.userLogin{
+    position: relative;
+    left:80%;
+    top: 1rem;
+}
+.userLogin>button{
+    color: #0066c0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.userLogin>button:hover{
+    color: #0066c0;
+    border-bottom: 1px solid #0066c0 ;
+}
+.registerUser{
+    position: relative;
+    left:80%;
+}
+.registerUser>button{
+    color: #0066c0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.registerUser>button:hover{
+    color: #0066c0;
+    border-bottom: 1px solid #0066c0 ;
+}
 .thongtinkh {
     position: absolute;
     position: absolute;
