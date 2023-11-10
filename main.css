@@ -365,31 +365,79 @@ input[type="radio"] {
 }
 
 .imgSlide {
-    position: relative;
-    left: 0rem;
-    top: 0rem;
-    width: 70%;
-    height: 313px;
+    width: auto;
+    height: 315px;
 }
 
-.slider {
-    background: red;
-    color: white;
-    width: 300px;
+#slideshow {
+    position: absolute;
+    top: 9.2rem;
+    left: 18rem;
+    overflow: hidden;
     height: 300px;
-    display: flex;
-    overflow-x: auto;
-    -webkit-scroll-snap-points-x: repeat(300px);
-    -ms-scroll-snap-points-x: repeat(300px);
-    scroll-snap-points-x: repeat(300px);
-    -webkit-scroll-snap-type: mandatory;
-    -ms-scroll-snap-type: mandatory;
-    scroll-snap-type: mandatory;
+    /* Adjusted height */
+    width: 400px;
+    /* Adjusted width */
+
+
+    margin: 0 auto;
+}
+
+.slide-wrapper {
+    width: 2000px;
+    /* Adjusted width based on the number of slides */
+    animation: slide 8s ease infinite;
+    /* Adjusted duration based on the new dimensions */
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Background color for the content */
+    opacity: 0;
+    /* Initially set to be invisible */
+    transition: opacity 0.5s ease;
+    /* Add a smooth transition effect */
+}
+
+.slide:hover .slide-content {
+    opacity: 1;
+    /* Make the content visible on hover */
 }
 
 .slide {
-    width: auto;
-    height: auto;
+    float: left;
+    height: 300px;
+    /* Adjusted height */
+    width: 400px;
+    /* Adjusted width */
 }
+
+@keyframes slide {
+    25% {
+        margin-left: 0;
+    }
+
+    50% {
+        margin-left: -400px;
+    }
+
+    75% {
+        margin-left: -800px;
+    }
+
+    90% {
+        margin-left: -1200px;
+    }
+
+    100% {
+        margin-left: -1600px;
+    }
+}
+
 
 /* slide */
