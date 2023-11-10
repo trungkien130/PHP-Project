@@ -104,6 +104,7 @@ nav {
     color: white;
     text-decoration: none;
 }
+
 /* header css */
 /* đăng nhập đăng xuất */
 .thongtinkh {
@@ -121,7 +122,8 @@ nav {
     cursor: pointer;
     text-decoration: none;
 }
-.thongtinkh:hover{
+
+.thongtinkh:hover {
     color: red;
 }
 
@@ -340,20 +342,54 @@ input[type="radio"] {
     margin-left: 85%;
 }
 
-
 /* thay đổi thông tin khách hàng */
 /* slide */
-.slice{
+
+.slideControl>.fa-angle-left {
     position: absolute;
-    left: 22%;
-    top: 9.2rem;
-    width: 75%;
-    height: 313px;
-    border: 1px solid black;
-    z-index: 0;
+    top: -10rem;
+    left: -12px;
+    z-index: 1;
+    border: 1px solid white;
+    border-radius: 40px;
+    background-color: white;
+    padding: 20px 22px 20px 22px;
+    color: black;
+    cursor: pointer;
 }
-.imgSlide{
+
+.slideBack {
+    color: white;
     position: relative;
-    left: 20px;
+    top: 0;
 }
+
+.imgSlide {
+    position: relative;
+    left: 0rem;
+    top: 0rem;
+    width: 70%;
+    height: 313px;
+}
+
+.slider {
+    background: red;
+    color: white;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    overflow-x: auto;
+    -webkit-scroll-snap-points-x: repeat(300px);
+    -ms-scroll-snap-points-x: repeat(300px);
+    scroll-snap-points-x: repeat(300px);
+    -webkit-scroll-snap-type: mandatory;
+    -ms-scroll-snap-type: mandatory;
+    scroll-snap-type: mandatory;
+}
+
+.slide {
+    width: auto;
+    height: auto;
+}
+
 /* slide */
