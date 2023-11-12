@@ -71,24 +71,49 @@
             </li>
         </ul>
     </div>
-
     <div id="slideshow">
-
         <div class="slide-wrapper">
-            <div class="slide" id="slide-1"><img class="imgSlide" src="img/372419_loi-than-va-nhan-vien-van-phong-tap-1.jpg">
-                <div class="slide-content">
-                    <h1>Lôi Thần Và Nhân Viên Văn Phòng</h1>
-                    <p>Tác giả: Rena</p>
-                    <p>Nhà xuất bản: Nxb Hà Nội</p>
-                    <p>Nhà phát hành: AZ books</p>
-                    <span>Anh chàng gay Omura là một nhân viên văn phòng bình thường, cuộc sống mỗi ngày trôi qua một cách mệt mỏi và nhàm chán...</span>
+            <div class="slide" id="slide-1"><img class="imgSlide" src="img/sach onlie.jpg"></div>
+            <div class="slide" id="slide-2"><img class="imgSlide" src="img/images (1).jfif"></div>
+            <div class="slide" id="slide-3"><img class="imgSlide" src="img/images.jfif"></div>
+            <div class="slide" id="slide-4"><img class="imgSlide" src="img/images.jfif"></div>
+        </div>
+        </div>
+        <div>
+            <h1>Danh sách sản phẩm</h1>
+        </div>
+        <div class="listProducts">
+                <div class="Products">
+                    <img class="productsImg" src="img/372419_loi-than-va-nhan-vien-van-phong-tap-1.jpg" alt="">
+                    <p class="productsName">Tên: Lôi thần và nhân viên văn phòng tập 1</p>
+                    <p class="productsPrice">Giá: 20000đ </p>
+                </div>
+                <div class="Products">
+                    <img class="productsImg" src="img/371474_loi-than-va-nhan-vien-van-phong-tap-2.jpg" alt="">
+                    <p class="productsName">Tên: Lôi thần và nhân viên văn phòng tập 2</p>
+                    <p class="productsPrice">Giá: 50000đ </p>
+                </div>
+                <div class="Products">
+                    <img class="productsImg" src="img/372415_loi-than-va-nhan-vien-van-phong-tap-3.jpg" alt="">
+                    <p class="productsName">Tên: Lôi thần và nhân viên văn phòng tập 3</p>
+                    <p class="productsPrice">Giá: 100000đ </p>
+                </div>
+                <div class="Products">
+                    <img class="productsImg" src="img/372418_loi-than-va-nhan-vien-van-phong-tap-4.jpg" alt="">
+                    <p class="productsName">Tên: Lôi thần và nhân viên văn phòng tập 4</p>
+                    <p class="productsPrice">Giá: 65000đ </p>
+                </div>
+                <div class="Products">
+                    <img class="productsImg" src="img/372416_loi-than-va-nhan-vien-van-phong-tap-5.jpg" alt="">
+                    <p class="productsName">Tên: Lôi thần và nhân viên văn phòng tập 5</p>
+                    <p class="productsPrice">Giá: 80000đ </p>
+                </div>
+                <div class="Products">
+                    <img class="productsImg" src="img/372414_su-im-lang-cua-bay-cuu-tai-ban-2022.jpg" alt="">
+                    <p class="productsName">Tên: Sự im lặng của bày cừu</p>
+                    <p class="productsPrice">Giá: 200000đ </p>
                 </div>
             </div>
-            <div class="slide" id="slide-2"><img class="imgSlide" src="img/371474_loi-than-va-nhan-vien-van-phong-tap-2.jpg"></div>
-            <div class="slide" id="slide-3"><img class="imgSlide" src="img/372415_loi-than-va-nhan-vien-van-phong-tap-3.jpg"></div>
-            <div class="slide" id="slide-4"><img class="imgSlide" src="img/372418_loi-than-va-nhan-vien-van-phong-tap-4.jpg"></div>
-            <div class="slide" id="slide-5"><img class="imgSlide" src="img/372416_loi-than-va-nhan-vien-van-phong-tap-5.jpg"></div>
-        </div>
 
 </body>
 

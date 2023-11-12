@@ -20,7 +20,7 @@
         $EMAIL = $_POST["EMAIL"];
         $MAT_KHAU = $_POST["MAT_KHAU"];
 
-        $sql_check = "SELECT EMAIL, MAT_KHAU FROM dangki WHERE EMAIL ='$EMAIL' AND MAT_KHAU='$MAT_KHAU'";
+        $sql_check = "SELECT EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL ='$EMAIL' AND MAT_KHAU='$MAT_KHAU'";
         $res_check = $conn->query($sql_check);
 
         if ($res_check->num_rows > 0) {

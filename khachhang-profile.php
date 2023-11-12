@@ -17,12 +17,12 @@
     require("header.php");
 
     $ID = 1; // Gán giá trị 1 cho biến $ID
-    $sql_edit = "SELECT * FROM `DANGKI` WHERE ID ='$ID' ";
+    $sql_edit = "SELECT * FROM `khachhang` WHERE ID ='$ID' ";
     $result_edit = $conn->query($sql_edit);
     $row_edit = $result_edit->fetch_array();
 
 
-    $sql = "SELECT * FROM DANGKI WHERE 1=1 ";
+    $sql = "SELECT * FROM khachhang WHERE 1=1 ";
     $result = $conn->query($sql);
     $error_message = "";
     if (isset($_POST["change_comfirm"])) {
@@ -34,10 +34,10 @@
         $NGAY_SINH = $_POST["NGAY_SINH"];
         $GIOI_TINH = $_POST["gender"];
 
-        $sql_insert = "INSERT INTO `dangki` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`) ";
+        $sql_insert = "INSERT INTO `khachhang` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`) ";
         $sql_insert .= "VALUES ('$HO_TEN', '$MAT_KHAU', '$DIEN_THOAI', '$EMAIL', '$NGAY_SINH', '$GIOI_TINH')";
 
-        $sql_update = "UPDATE DANGKI SET";
+        $sql_update = "UPDATE khachhang SET";
         $sql_update .= "HO_TEN=` $HO_TEN`,";
         $sql_update .= "MAT_KHAU=` $MAT_KHAU`,";
         $sql_update .= "DIEN_THOAI=` $DIEN_THOAI`,";

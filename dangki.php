@@ -15,7 +15,7 @@
     <?php
     //1. kết nối
     include("ketnoi.php");
-    $sql = "SELECT * FROM DANGKI WHERE 1=1 ";
+    $sql = "SELECT * FROM KHACHHANG WHERE 1=1 ";
     $error_message = "";
     $success_message = "";
     $result = $conn->query($sql);
@@ -26,13 +26,13 @@
         $EMAIL = $_POST["EMAIL"];
         $NGAY_SINH = $_POST["NGAYSINH"];
         $GIOI_TINH = $_POST["gender"];
-        $sql_check = "SELECT EMAIL FROM dangki WHERE EMAIL ='$EMAIL' ";
+        $sql_check = "SELECT EMAIL FROM khachhang WHERE EMAIL ='$EMAIL' ";
         $res_check = $conn->query($sql_check);
         if ($res_check->num_rows > 0) {
             $error_message = "Tài Khoản đã tồn tại";
         }
         $hashed_password = password_hash($MAT_KHAU, PASSWORD_DEFAULT);
-        $sql_insert = "INSERT INTO `dangki` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`) ";
+        $sql_insert = "INSERT INTO `khachhang` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`) ";
         $sql_insert .= "VALUES ('$HO_TEN', '$hashed_password', '$DIEN_THOAI', '$EMAIL', '$NGAY_SINH', '$GIOI_TINH')";
         
         if ($conn->query($sql_insert)) {
@@ -74,7 +74,7 @@
                 <div>
                             <span class="userLogin" >Đã có tài khoản <button onclick="login()">Đăng nhập</button> </span>
                         </div>
-                <div class="dangki_btn">
+                <div class="khachhang_btn">
                     <button type="submit" name="sigup_btn" onclick="sigupconfirm()" value="Đăng kí">Đăng kí</button>
                 </div>
             </div>

@@ -15,6 +15,4 @@ $(function () {
     $("#sigupModal").show()
     $("#loginModal").hide()
   }
- 
-
 });

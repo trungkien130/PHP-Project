@@ -107,35 +107,41 @@ nav {
 
 /* header css */
 /* đăng nhập đăng xuất */
-.userLogin{
+.userLogin {
     position: relative;
-    left:80%;
+    left: 80%;
     top: 1rem;
 }
-.userLogin>button{
+
+.userLogin>button {
     color: #0066c0;
     background: none;
     border: none;
     cursor: pointer;
 }
-.userLogin>button:hover{
+
+.userLogin>button:hover {
     color: #0066c0;
-    border-bottom: 1px solid #0066c0 ;
+    border-bottom: 1px solid #0066c0;
 }
-.registerUser{
+
+.registerUser {
     position: relative;
-    left:80%;
+    left: 80%;
 }
-.registerUser>button{
+
+.registerUser>button {
     color: #0066c0;
     background: none;
     border: none;
     cursor: pointer;
 }
-.registerUser>button:hover{
+
+.registerUser>button:hover {
     color: #0066c0;
-    border-bottom: 1px solid #0066c0 ;
+    border-bottom: 1px solid #0066c0;
 }
+
 .thongtinkh {
     position: absolute;
     position: absolute;
@@ -169,12 +175,15 @@ nav {
     border: none;
     cursor: pointer;
 }
-.sigup_btn:hover{
+
+.sigup_btn:hover {
     color: red;
 }
-.login_btn:hover{
+
+.login_btn:hover {
     color: red;
 }
+
 .login_btn {
     position: absolute;
     top: 2rem;
@@ -313,16 +322,16 @@ input[type="radio"] {
 }
 
 .submenu a {
-    /* Add your styles for the 'a' tag within the '.submenu' */
-    text-decoration: none; /* Example: remove text decoration */
-    color: green; /* Example: green text color */
+    text-decoration: none;
+    color: green;
 }
-.submenu a:hover{
+
+.submenu a:hover {
     color: red;
 }
+
 .Listtitle>li {
     list-style-type: none;
-
 }
 
 .menu-item {
@@ -409,7 +418,7 @@ input[type="radio"] {
 }
 
 .imgSlide {
-    width: 400px;
+    width: 810px;
     height: 315px;
 }
 
@@ -418,13 +427,13 @@ input[type="radio"] {
     top: 9.2rem;
     left: 18rem;
     overflow: hidden;
-    height: 300px;
-    width: 400px;
+    height: 320px;
+    width: 810px;
     margin: 0 auto;
 }
 
 .slide-wrapper {
-    width: 2000px;
+    width: 4000px;
     animation: slide 15s ease infinite;
 
 }
@@ -436,47 +445,69 @@ input[type="radio"] {
     right: 0;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.7);
-    /* Background color for the content */
     opacity: 0;
-    /* Initially set to be invisible */
     transition: opacity 0.5s ease;
-    /* Add a smooth transition effect */
+
 }
 
 .slide:hover .slide-content {
     opacity: 1;
-    /* Make the content visible on hover */
 }
 
 .slide {
     float: left;
     height: 300px;
-    /* Adjusted height */
-    width: 400px;
+    width: 810px;
     /* Adjusted width */
 }
 
 @keyframes slide {
-    20% {
+    0%{
+        margin-left: 0;
+    }
+    25% {
         margin-left: 0;
     }
 
-    40% {
-        margin-left: -400px;
+    55% {
+        margin-left: -810px;
     }
 
-    60% {
-        margin-left: -800px;
-    }
-
-    80% {
-        margin-left: -1200px;
+    85% {
+        margin-left: -1620px;
     }
 
     100% {
-        margin-left: -1600px;
+        margin-left: -2425px;
     }
+
 }
 
 
 /* slide */
+/* danh sách sản phẩm */
+.listProducts{
+    position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+}
+.Products{
+    cursor: pointer;
+    width: 210px;
+    height: 320px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+.productsName{
+    font-weight: bold;
+}
+.productsPrice{
+    color: red;
+}
+.productsName:hover{
+    color: red;
+}
+/* danh sách sản phẩm */
