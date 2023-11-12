@@ -169,7 +169,12 @@ nav {
     border: none;
     cursor: pointer;
 }
-
+.sigup_btn:hover{
+    color: red;
+}
+.login_btn:hover{
+    color: red;
+}
 .login_btn {
     position: absolute;
     top: 2rem;
@@ -293,6 +298,7 @@ input[type="radio"] {
 }
 
 /* đăng nhập đăng xuất */
+
 .titleModal {
     background-color: #24890b;
     margin-top: 0rem;
@@ -306,8 +312,17 @@ input[type="radio"] {
     left: 15rem;
 }
 
-.Listtitle li {
+.submenu a {
+    /* Add your styles for the 'a' tag within the '.submenu' */
+    text-decoration: none; /* Example: remove text decoration */
+    color: green; /* Example: green text color */
+}
+.submenu a:hover{
+    color: red;
+}
+.Listtitle>li {
     list-style-type: none;
+
 }
 
 .menu-item {
@@ -394,7 +409,7 @@ input[type="radio"] {
 }
 
 .imgSlide {
-    width: auto;
+    width: 400px;
     height: 315px;
 }
 
@@ -404,19 +419,14 @@ input[type="radio"] {
     left: 18rem;
     overflow: hidden;
     height: 300px;
-    /* Adjusted height */
     width: 400px;
-    /* Adjusted width */
-
-
     margin: 0 auto;
 }
 
 .slide-wrapper {
     width: 2000px;
-    /* Adjusted width based on the number of slides */
-    animation: slide 8s ease infinite;
-    /* Adjusted duration based on the new dimensions */
+    animation: slide 15s ease infinite;
+
 }
 
 .slide-content {
@@ -447,19 +457,19 @@ input[type="radio"] {
 }
 
 @keyframes slide {
-    25% {
+    20% {
         margin-left: 0;
     }
 
-    50% {
+    40% {
         margin-left: -400px;
     }
 
-    75% {
+    60% {
         margin-left: -800px;
     }
 
-    90% {
+    80% {
         margin-left: -1200px;
     }
 

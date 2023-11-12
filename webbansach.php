@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="profile.js"></script>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="all.css">
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
     <title>Vivabook.com</title>
 </head>
@@ -23,59 +23,60 @@
         <ul class="Listtitle">
             <li class="menu-item">Sách ngoại văn <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
             <li class="menu-item">Sách kinh tế <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
             <li class="menu-item">Sách văn học trong nước <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
             <li class="menu-item">Sách văn học nước ngoài <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
             <li class="menu-item">Sách giáo khoa <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
             <li class="menu-item">Sách thiếu nhi <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
             <li class="menu-item">Sách tin học-Ngoại ngữ <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
             <li class="menu-item">Sách tin chuyên ngành <i class="fa-solid fa-angle-right"></i>
                 <ul class="submenu">
-                    <li>Thể loại 1</li>
-                    <li>Thể loại 2</li>
+                    <li><a href="#">Thể loại 1</a></li>
+                    <li><a href="#">Thể loại 2</a></li>
                 </ul>
             </li>
         </ul>
     </div>
+
     <div id="slideshow">
 
         <div class="slide-wrapper">
             <div class="slide" id="slide-1"><img class="imgSlide" src="img/372419_loi-than-va-nhan-vien-van-phong-tap-1.jpg">
-            <div class="slide-content">
+                <div class="slide-content">
                     <h1>Lôi Thần Và Nhân Viên Văn Phòng</h1>
                     <p>Tác giả: Rena</p>
                     <p>Nhà xuất bản: Nxb Hà Nội</p>
