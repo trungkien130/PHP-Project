@@ -13,19 +13,35 @@
 </head>
 
 <body>
-
+    <?php
+    // Đọc dữ liệu và hiển thị
+    //1. kết nối
+    include("ketnoi.php");
+    //2. tạo truy vấn đọc dữ liệu từ bảng
+    $sql = "SELECT * FROM DANHMUCSACH WHERE 1=1 ";
+    // xử lý khi tìm kiếm
+    if (isset($_GET["search_btn"])) {
+        $keyword = $_GET["keyword"];
+        if (isset($keyword)) {
+            $sql .= " and TEN_SP like '%$keyword%'";
+        }
+    }
+    //3. Thực thi câu lệnh truy vấn
+    $result = $conn->query($sql);
+    //4. duyệt và hiển thị -> tblLTK
+    ?>
     <header>
         <div>
             <div>
                 <a href="webbansach.php"><img src="img/vnb_logo_2x.png" alt="" /></a>
             </div>
             <div>
-                <input class="searchItem" type="search" placeholder="Tìm kiếm tựa sách, tác giả" />
+                <input class="searchItem" type="search" id="keyword" placeholder="Tìm kiếm tựa sách, tác giả" />
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <button class="search_btn" type="submit">Tìm sách</button>
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
-            <div>
+            <div class="">
                 <button class="sigup_btn" onclick="sigup()">Đăng kí</button>
                 <button class="login_btn" onclick="login()">Đăng nhập</button>
                 <a class="thongtinkh" href="khachhang-profile.php">Thông tin khách hàng</a>
@@ -33,7 +49,7 @@
         </div>
     </header>
     <nav>
-    <?php
+        <?php
         // Kiểm tra xem người dùng đã đăng nhập hay chưa
         if (isset($_SESSION["ID"])) {
             // Người dùng đã đăng nhập, hiển thị tên người dùng và liên kết đăng xuất

@@ -15,14 +15,21 @@
     <?php
     include("ketnoi.php");
     require("header.php");
+    require("dangki.php");
+    require("dangnhap.php");
 
-    $ID = 1; // Gán giá trị 1 cho biến $ID
-    $sql_edit = "SELECT * FROM `khachhang` WHERE ID ='$ID' ";
-    $result_edit = $conn->query($sql_edit);
-    $row_edit = $result_edit->fetch_array();
+    if (isset($_GET["EMAIL"])) {
+        $EMAIL = $_GET["EMAIL"];
+        $sql_edit = "SELECT EMAIL FROM KHACHHANG WHERE EMAIL ='$EMAIL' ";
+        // $sql = "SELECT COUNT(*) AS EMAIL FROM KHACHHANG";
+        $result_edit = $conn->query($sql);
+        $row_edit = $result_edit->fetch_array();
+    } else {
+    }
+    // $row = $result->fetch_assoc();
+    // echo "Số dòng trong bảng là: " . $row["EMAIL"];
 
-
-    $sql = "SELECT * FROM khachhang WHERE 1=1 ";
+    $sql = "SELECT * FROM KHACHHANG WHERE 1=1 ";
     $result = $conn->query($sql);
     $error_message = "";
     if (isset($_POST["change_comfirm"])) {
@@ -37,7 +44,7 @@
         $sql_insert = "INSERT INTO `khachhang` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`) ";
         $sql_insert .= "VALUES ('$HO_TEN', '$MAT_KHAU', '$DIEN_THOAI', '$EMAIL', '$NGAY_SINH', '$GIOI_TINH')";
 
-        $sql_update = "UPDATE khachhang SET";
+        $sql_update = "UPDATE KHACHHANG SET";
         $sql_update .= "HO_TEN=` $HO_TEN`,";
         $sql_update .= "MAT_KHAU=` $MAT_KHAU`,";
         $sql_update .= "DIEN_THOAI=` $DIEN_THOAI`,";
@@ -53,26 +60,26 @@
     }
 
     ?>
-    <form action="" method="post">
+    <form action="" method="get">
         <div class="profile-show">
             <div>
                 <div class="profile-content">
                     <h2 class="titleProfile">Thông tin cá nhân</h2>
                     <div class="change nameChange">
-                        <label for="">Họ và Tên</label><input type="text" name="HO_TEN" value="<?php echo $row_edit["HO_TEN"] ?>" required>
+                        <label for="">Họ và Tên</label><input type="text" class="inputInFor" name="HO_TEN" value="<?php echo $edit["HO_TEN"]; ?>" required>
                     </div>
                     <div class="change passwordChange">
-                        <label for="">Mật khẩu</label><input type="password" name="MAT_KHAU" value="<?php echo $row_edit["MAT_KHAU"] ?>" required>
+                        <label for="">Mật khẩu</label><input type="password" class="inputInFor" name="MAT_KHAU" value="<?php echo $row_edit["MAT_KHAU"] ?>" required>
                     </div>
                     <div class="change phoneChange">
-                        <label for="">Số điện thoại</label><input type="text" name="DIEN_THOAI" value="<?php echo $row_edit["DIEN_THOAI"] ?>" required>
+                        <label for="">Số điện thoại</label><input type="text" class="inputInFor" name="DIEN_THOAI" value="<?php echo $row_edit["DIEN_THOAI"] ?>" required>
                     </div>
                     <div class="change emailChange">
                         <label for="">Email</label>
-                        <input type="email" name="EMAIL" value=" <?php echo $row_edit["EMAIL"] ?>" required>
+                        <input type="email" class="inputInFor" name="EMAIL" value=" <?php echo $row_edit["EMAIL"] ?>" required>
                     </div>
                     <div class="change borndateChange">
-                        <label for="">Ngày Sinh</label><input type="date" name="NGAY_SINH" value="<?php echo $row_edit["NGAY_SINH"] ?>" required>
+                        <label for="">Ngày Sinh</label><input type="date" class="inputInFor name=" name="NGAY_SINH" value="<?php echo $row_edit["NGAY_SINH"] ?>" required>
                     </div>
                     <div class="change genderChange">
                         <label for="">Giới tính</label>

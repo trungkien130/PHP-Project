@@ -17,9 +17,16 @@
     include("ketnoi.php");
     $error_message = "";
     if (isset($_POST["login_btn"])) {
+        $TAI_KHOAN = $_GET["TAI_KHOAN"];
+        $MAT_KHAU = $_GET["MAT_KHAU"];
+        $sql = "SELECT * FROM QUANTRI WHERE TAI_KHOAN = '$TAI_KHOAN'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_array();
+        header("Location:admin.php");
+    }
+    if (isset($_POST["login_btn"])) {
         $EMAIL = $_POST["EMAIL"];
         $MAT_KHAU = $_POST["MAT_KHAU"];
-
         $sql_check = "SELECT EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL ='$EMAIL' AND MAT_KHAU='$MAT_KHAU'";
         $res_check = $conn->query($sql_check);
 
@@ -33,14 +40,15 @@
             header("Location: webbansach.php");
         } else {
             $error_message = "Sai mật khẩu hoặc tên đăng nhập không tồn tại vui lòng kiểm tra lại!!";
+            header("Location: webbansach.php");
         }
     }
+
+
     ?>
     <?php if (!empty($error_message)) : ?>
         <script>
             alert("<?php echo $error_message ?>")
-            $(document).ready(function () {
-            $("#loginModal").show()});
         </script>
     <?php endif; ?>
 
@@ -52,15 +60,15 @@
                 <form class="login_content">
                     <div class="input inputUsername">
                         <label for="username">Email:</label>
-                        <input type="text" id="username" name="EMAIL" required><br>
+                        <input type="text" id="username" name="EMAIL" class="inputInFor" required><br>
                     </div>
                     <div class="input inputPassword">
                         <label for="password">Mật khẩu:</label>
-                        <input type="password" id="password" name="MAT_KHAU" required><br>
+                        <input type="password" id="password" name="MAT_KHAU" class="inputInFor" required><br>
                     </div>
-                        <div>
-                            <span class="registerUser" >Chưa có tài khoản <button onclick="sigup()">Đăng kí ngay</button> </span>
-                        </div>
+                    <div>
+                        <span class="registerUser">Chưa có tài khoản <button onclick="sigup()">Đăng kí ngay</button> </span>
+                    </div>
                     <button type="submit" class="login_comfirm" name="login_btn" onclick="confirm_login()">Đăng Nhập</button>
                 </form>
             </div>
