@@ -22,14 +22,6 @@
     background-color: green;
     cursor: pointer;
 }
-
-.fa-solid {
-    position: absolute;
-    color: gray;
-    top: 2rem;
-    left: 26%;
-}
-
 .fa-cart-shopping {
     position: absolute;
     color: green;
@@ -46,7 +38,7 @@ header {
     left: 0;
     width: 100%;
     background-color: #fff;
-    padding: 20px 10px 20px 10px;
+    padding: 20px 10px 8px 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* Optional: Add a subtle shadow */
     transition: background-color 0.3s ease
@@ -55,7 +47,6 @@ header {
 header.scrolled {
     background-color: #f8f8f8;
 }
-
 nav {
     position: relative;
     margin-top: 5rem;
@@ -63,7 +54,11 @@ nav {
     width: 100%;
     min-height: 40px;
 }
-
+.fa-magnifying-glass{
+    position: relative;
+    left: 20rem;
+    top: -1.6rem;
+}
 .fa-bars-staggered {
     position: relative;
     top: 0.5rem;
@@ -520,12 +515,15 @@ label {
 .productsName {
     font-weight: bold;
 }
-
+.productsName a{
+    text-decoration: none;
+    color: black;
+}
 .productsPrice {
     color: red;
 }
 
-.productsName:hover {
+.productsName>a:hover {
     color: red;
 }
 
@@ -542,7 +540,6 @@ label {
     margin-top: 20px;
     background-color: #24890b;
 }
-
 .announce-content {
     color: #fff;
     font-family: "Montserrat-Light", sans-serif;
@@ -649,3 +646,60 @@ label {
 }
 
 /* footer */
+/* chi tiết sản phẩm */
+.detail_products{
+    position: absolute;
+    left: 5rem;
+    top: 10rem;
+    border: 1px solid black;
+    width: 90%;
+    height: 90%;
+}
+.detail_products_content{
+    position: absolute;
+    top: 0;
+    left: 44%;
+}
+.detail_img{
+    width: 40%;
+    height: 100%;
+}
+.detail_name{
+    font-weight: 500;
+    font-size: 2.25rem;
+}
+.detail_price{
+    color: red;
+    font-size: 2rem;
+    position: relative;
+}
+.detail_product{
+    font-size: large;
+    font-weight: 300;
+}
+.addProductsToBuy{
+    position: absolute;
+    top: 87%;
+    width: 40%;
+    left: 45%;
+}
+.addButton{
+    padding: 15px;
+    color: #353535;
+    background-color: #e1af04;
+    border: none;
+}
+.addButton:hover{
+    background-color: #f5da88;
+}
+.buyButton{
+    padding: 15px;
+    color: #353535;
+    background-color: #e1af04;
+    border: none;
+    width: 35%;
+}
+.buyButton:hover{
+    background-color: #f5da88;
+}
+/* chi tiết sản phẩm */

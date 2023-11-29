@@ -23,6 +23,7 @@
         $HO_TEN = $_POST["HO_TEN"];
         $MAT_KHAU = $_POST["MATKHAU"];
         $DIEN_THOAI = $_POST["DIEN_THOAI"];
+        $DIA_CHI = $_POST["DIA_CHI"];
         $EMAIL = $_POST["EMAIL"];
         $NGAY_SINH = $_POST["NGAYSINH"];
         $GIOI_TINH = $_POST["gender"];
@@ -32,8 +33,8 @@
             $error_message = "Tài Khoản đã tồn tại";
         }
         $hashed_password = password_hash($MAT_KHAU, PASSWORD_DEFAULT);
-        $sql_insert = "INSERT INTO `khachhang` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`) ";
-        $sql_insert .= "VALUES ('$HO_TEN', '$hashed_password', '$DIEN_THOAI', '$EMAIL', '$NGAY_SINH', '$GIOI_TINH')";
+        $sql_insert = "INSERT INTO `khachhang` (`HO_TEN`, `MAT_KHAU`, `DIEN_THOAI`,`DIA_CHI`, `EMAIL`, `NGAY_SINH`, `GIOI_TINH`,`NGAY_CAP_NHAT`) ";
+        $sql_insert .= "VALUES ('$HO_TEN', '$hashed_password', '$DIEN_THOAI','$DIA_CHI', '$EMAIL', '$NGAY_SINH', '$GIOI_TINH',NOW())";
 
         if ($conn->query($sql_insert)) {
             $success_message = "Đăng kí thành công";
@@ -57,6 +58,9 @@
                 </div>
                 <div class="input phoneInput">
                     <label for="">Số điện thoại</label><input type="text" class="inputInFor" name="DIEN_THOAI" required>
+                </div>
+                <div class="input addrestInput">
+                    <label for="">Địa chỉ</label><input type="text" class="inputInFor" name="DIA_CHI" required>
                 </div>
                 <div class="input emailInput">
                     <label for="">Email</label>

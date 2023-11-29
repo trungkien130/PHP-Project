@@ -17,34 +17,33 @@
     include("ketnoi.php");
     $error_message = "";
     if (isset($_POST["login_btn"])) {
-        $TAI_KHOAN = $_GET["TAI_KHOAN"];
-        $MAT_KHAU = $_GET["MAT_KHAU"];
-        $sql = "SELECT * FROM QUANTRI WHERE TAI_KHOAN = '$TAI_KHOAN'";
-        $result = $conn->query($sql);
-        $row = $result->fetch_array();
-        header("Location:admin.php");
-    }
-    if (isset($_POST["login_btn"])) {
-        $EMAIL = $_POST["EMAIL"];
-        $MAT_KHAU = $_POST["MAT_KHAU"];
-        $sql_check = "SELECT EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL ='$EMAIL' AND MAT_KHAU='$MAT_KHAU'";
-        $res_check = $conn->query($sql_check);
+        if (isset($_POST["TAI_KHOAN"]) && isset($_POST["MAT_KHAU"])) {
+            $TAI_KHOAN = $_POST["TAI_KHOAN"];
+            $MAT_KHAU = $_POST["MAT_KHAU"];
 
-        if ($res_check->num_rows > 0) {
-            $chk = $_POST['chkRemeber'];
-            echo "rem=" . $chk;
-            if (isset($chk)) {
-                setcookie('taikhoan', $usr, time() + 60 * 60);
+            $sql = "SELECT TAI_KHOAN, MAT_KHAU FROM quantri WHERE TAI_KHOAN = '$TAI_KHOAN' AND MAT_KHAU='$MAT_KHAU'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $TAI_KHOAN = $row['TAI_KHOAN'];
+                header("Location: admin.php");
             }
-
-            header("Location: webbansach.php");
         } else {
-            $error_message = "Sai mật khẩu hoặc tên đăng nhập không tồn tại vui lòng kiểm tra lại!!";
-            header("Location: webbansach.php");
+            if (isset($_POST["EMAIL"]) && isset($_POST["MAT_KHAU"])) {
+                $EMAIL = $_POST["EMAIL"];
+                $MAT_KHAU = $_POST["MAT_KHAU"];
+                $sql_check = "SELECT EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL ='$EMAIL' AND MAT_KHAU='$MAT_KHAU'";
+                $result_check = $conn->query($sql_check); // Use $result_check instead of $result
+
+                if ($result_check->num_rows > 0) { // Use $result_check instead of $result
+                    $row = $result_check->fetch_assoc(); // Use $result_check instead of $result
+                    $EMAIL = $row['EMAIL'];
+                    header("Location: webbansach.php");
+                }
+            }
         }
     }
-
-
     ?>
     <?php if (!empty($error_message)) : ?>
         <script>
