@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="profile.js"></script>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
     <title>Document</title>
 </head>

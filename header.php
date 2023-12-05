@@ -49,15 +49,7 @@
         </div>
     </header>
     <nav>
-        <?php
-        // Kiểm tra xem người dùng đã đăng nhập hay chưa
-        if (isset($_SESSION["ID"])) {
-            // Người dùng đã đăng nhập, hiển thị tên người dùng và liên kết đăng xuất
-            echo "Chào mừng, " . $_SESSION["email"] . "! ";
-            echo "<a href='logout.php'>Đăng xuất</a>";
-        } else {
-        }
-        ?>
+
         <div>
             <i class="fa-solid fa-bars-staggered"></i>
             <span class="listBook"> Danh mục sách</span>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="profile.js"></script>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
     <title>Document</title>
 </head>
@@ -30,7 +30,11 @@ if (isset($_POST["btnSubmit"])) {
     $GIA_NHAP = $_POST["GIA_NHAP"];
     $GIA_CU = $_POST["GIA_CU"];
     $GIA_MOI = $_POST["GIA_MOI"];
-
+    //đếm số mã sản phẩm hiện đang có và thêm 1 mỗi khi thêm mới sản phẩm
+    $sql_count = "SELECT COUNT(*) AS MA_SP FROM danhmucsach";
+    $result = $conn->query($sql_count);
+    $row = $result->fetch_assoc();
+    $MA_SP = $row['MA_SP'] + 1;
     // kiểm tra khóa chính không được trùng 
     $sql_check = "SELECT MA_SP FROM danhmucsach WHERE MA_SP = '$MA_SP'";
     $result_check = $conn->query($sql_check);
@@ -39,7 +43,7 @@ if (isset($_POST["btnSubmit"])) {
     } else {
         // Thực hiện thêm mới nếu không trùng mã sản phẩm
         $sql_insert = "INSERT INTO danhmucsach (`MA_SP`, `TEN_SP`, `SL_TON`, `IMG_SP`, `THONG_TIN`, `GIA_NHAP`, `GIA_CU`, `GIA_MOI`, `NGAY_CAP_NHAT`) 
-        VALUES ('$MA_SP', '$TEN_SP', '$SL_TON', '$IMG_SP', '$THONG_TIN', '$GIA_NHAP', '$GIA_CU', '$GIA_MOI', NOW());";
+        VALUES ('$MA_SP++', '$TEN_SP', '$SL_TON', '$IMG_SP', '$THONG_TIN', '$GIA_NHAP', '$GIA_CU', '$GIA_MOI', NOW());";
 
         if ($conn->query($sql_insert)) {
             header("Location: admin-quanly-sanpham.php");

@@ -17,40 +17,44 @@
     include("ketnoi.php");
     $error_message = "";
     if (isset($_POST["login_btn"])) {
-        if (isset($_POST["TAI_KHOAN"]) && isset($_POST["MAT_KHAU"])) {
-            $TAI_KHOAN = $_POST["TAI_KHOAN"];
-            $MAT_KHAU = $_POST["MAT_KHAU"];
+        $EMAIL = $_POST["EMAIL"];
+        $MAT_KHAU = $_POST["MAT_KHAU"];
 
-            $sql = "SELECT TAI_KHOAN, MAT_KHAU FROM quantri WHERE TAI_KHOAN = '$TAI_KHOAN' AND MAT_KHAU='$MAT_KHAU'";
-            $result = $conn->query($sql);
+        // kiểm tra trong bảng "quantri" 
+        $sql_admin = "SELECT EMAIL, MAT_KHAU FROM quantri WHERE EMAIL = '$EMAIL' LIMIT 1";
+        $res_admin = $conn->query($sql_admin);
 
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $TAI_KHOAN = $row['TAI_KHOAN'];
-                header("Location: admin.php");
+        if ($res_admin->num_rows > 0) {
+            $chk = $_POST['rmk'];
+            if (isset($chk)) {
+                setcookie('taikhoan', $EMAIL, time() + 60 * 60);
             }
+            header("Location: admin.php");
+            exit();
         } else {
-            if (isset($_POST["EMAIL"]) && isset($_POST["MAT_KHAU"])) {
-                $EMAIL = $_POST["EMAIL"];
-                $MAT_KHAU = $_POST["MAT_KHAU"];
-                $sql_check = "SELECT EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL ='$EMAIL' AND MAT_KHAU='$MAT_KHAU'";
-                $result_check = $conn->query($sql_check); // Use $result_check instead of $result
+            // kiểm tra trong bảng "khachhang" 
+            $sql_customer = "SELECT EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL = '$EMAIL' LIMIT 1";
+            $res_customer = $conn->query($sql_customer);
 
-                if ($result_check->num_rows > 0) { // Use $result_check instead of $result
-                    $row = $result_check->fetch_assoc(); // Use $result_check instead of $result
-                    $EMAIL = $row['EMAIL'];
-                    header("Location: webbansach.php");
+            if ($res_customer->num_rows > 0) {
+                $chk = $_POST['rmk'];
+                if (isset($chk)) {
+                    setcookie('taikhoan', $EMAIL, time() + 60 * 60);
                 }
+                header("Location: webbansach.php");
+                exit();
+            } else {
+                $error_message = "Sai mật khẩu hoặc tên đăng nhập không tồn tại, vui lòng kiểm tra lại!!";
             }
         }
     }
     ?>
+
     <?php if (!empty($error_message)) : ?>
         <script>
-            alert("<?php echo $error_message ?>")
+            alert("<?php echo $error_message ?>");
         </script>
     <?php endif; ?>
-
     <form action="" method="post">
         <div id="loginModal" class="modal">
             <div class="modal-content">

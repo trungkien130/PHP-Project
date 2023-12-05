@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="profile.js"></script>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
     <title>Document</title>
 </head>
+<?php
+include "ketnoi.php";
+?>
 
 <body>
     <div class="logout_button">
@@ -33,6 +36,67 @@
             </ul>
         </div>
     </div>
+    <div class="admin_main_page">
+        <div class="admin_control_products">
+            <a href="admin-quanly-sanpham.php" class="control_link">
+                <?php
+                $sql_products = "SELECT COUNT(*) as total FROM 	danhmucsach";
+                // Thực hiện truy vấn
+                $result_products = $conn->query($sql_products);
+                // Kiểm tra và hiển thị kết quả
+                if ($result_products->num_rows > 0) {
+                    $row_products = $result_products->fetch_assoc();
+                    echo '<div style="color: white;font-size: 50px;margin-left: 25px;">' . $row_products["total"] . "<br>", '</div>';
+                    echo '<div style="color: white;font-size: 20px;margin-left: 25px;">' . "sản phẩm" . '</div>';
+                } else {
+                    echo "Không có dữ liệu trong bảng.";
+                }
+
+                ?>
+                <div class=" detail_show detail_products_show"><a href="admin-quanly-sanpham.php">Chi tiết <i class="fa-solid fa-circle-arrow-right"></i></a></div>
+            </a>
+        </div>
+
+        <div class="admin_control_customer">
+            <a href="data-table-user.php" class="control_link">
+                <?php
+                $sql_customer = "SELECT COUNT(*) as total FROM 	khachhang";
+                // Thực hiện truy vấn
+                $result_customer = $conn->query($sql_customer);
+                // Kiểm tra và hiển thị kết quả
+                if ($result_customer->num_rows > 0) {
+                    $row_customer = $result_customer->fetch_assoc();
+                    echo '<div style="color: white;font-size: 50px;margin-left: 25px;">' . $row_customer["total"] . "<br>", '</div>';
+                    echo '<div style="color: white;font-size: 20px;margin-left: 25px;">' . "Tài khoản khách hàng" . '</div>';
+                } else {
+                    echo "Không có dữ liệu trong bảng.";
+                }
+                ?>
+                <div class="detail_show detail_customer_show"><a href="data-table-user.php">Chi tiết <i class="fa-solid fa-circle-arrow-right"></i></a></div>
+            </a>
+        </div>
+        <div class="admin_control_slide">
+            <a href="admin-quanly-slide.php" class="control_link">
+                <?php
+                $sql_slide = "SELECT COUNT(*) as total FROM 	slide";
+                // Thực hiện truy vấn
+                $result_slide = $conn->query($sql_slide);
+                // Kiểm tra và hiển thị kết quả
+                if ($result_slide->num_rows > 0) {
+                    $row_slide = $result_slide->fetch_assoc();
+                    echo '<div style="color: white;font-size: 50px;margin-left: 25px;">' . $row_slide["total"] . "<br>", '</div>';
+                    echo '<div style="color: white;font-size: 20px;margin-left: 25px;">' . "Slide" . '</div>';
+                } else {
+                    echo "Không có dữ liệu trong bảng.";
+                }
+                ?>
+                <div class="detail_show detail_slide_show"><a href="admin-quanly-slide.php">Chi tiết <i class="fa-solid fa-circle-arrow-right"></i></a></div>
+            </a>
+        </div>
+
+
+    </div>
+
 </body>
 
 </html>

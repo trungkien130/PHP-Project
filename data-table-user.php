@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="profile.js"></script>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
     <title>Document</title>
 </head>
@@ -14,10 +14,10 @@
 ob_start();
 include("ketnoi.php");
 $sql = "SELECT * FROM `khachhang` WHERE 1=1 ";
-if (isset($_GET["btnSearch"])) {
+if (isset($_GET["search_btn"])) {
     $keyword = $_GET["keyword"];
     if (isset($keyword)) {
-        $sql .= " and TEN_SP like '%$keyword%'";
+        $sql .= " and HO_TEN like '%$keyword%'";
     }
 }
 $result = $conn->query($sql);
@@ -47,60 +47,67 @@ $result = $conn->query($sql);
             </div>
         </div>
     </header>
-    <div class="control_products">
-        <div class="control_products_head_content">
-            <b>Danh sách khách hàng</b>
-        </div>
-        <div class="table_user_content">
-            <table border="1px" width="100%" cellspacing="0" cellpadding="5">
-                <thead>
-                    <tr>
-                        <th>Mã khách hàng</th>
-                        <th>Họ và tên</th>
-                        <th>Ngày sinh</th>
-                        <th>Điện thoại</th>
-                        <th>Địa chỉ</th>
-                        <th>Email</th>
-                        <th>Giới tính</th>
-                        <th>Điểm tích lũy</th>
-                        <th>Ngày cập nhật</th>
-                        <th>Chức năng</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    while ($row = $result->fetch_array()) :
-                    ?>
+    <form action="" method="get">
+        <div class="control_products">
+            <div class="control_products_head_content">
+                <b> <a href="data-table-user.php" class="control_products_head_content_link">Danh sách khách hàng</a></b>
+            </div>
+            <div class="search_customer">
+                <input class="searchItem" type="search" name="keyword" id="keyword" placeholder="Search" />
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <button class="search_btn" name="search_btn" type="submit">Search</button>
+            </div>
+            <div class="table_user_content">
+                <table border="1px" width="100%" cellspacing="0" cellpadding="5">
+                    <thead>
                         <tr>
-                            <td><?php echo $row["MA_KH"]; ?></td>
-                            <td><?php echo $row["HO_TEN"]; ?></td>
-                            <td><?php echo $row["NGAY_SINH"]; ?></td>
-                            <td><?php echo $row["DIEN_THOAI"]; ?></td>
-                            <td><?php echo $row["DIA_CHI"]; ?></td>
-                            <td><?php echo $row["EMAIL"]; ?></td>
-                            <td><?php if ($row["GIOI_TINH"] == 1) {
-                                    echo "Nam";
-                                } else {
-                                    echo "Nữ";
-                                } ?></td>
-                            <td><?php echo $row["TICH_DIEM"]; ?></td>
-                            <td><?php echo $row["NGAY_CAP_NHAT"]; ?></td>
-                            <td> <a href="">
-                                    Sửa
-                                </a>
-                                <br>
-                                <a href="data-table-user.php?MA_KH=<?php echo $row["MA_KH"]; ?>" onclick="if(confirm('Bạn có muốn xóa không')){return true;}else{return false;}">
-                                    Xóa
-                                </a>
-                            </td>
+                            <th>Mã khách hàng</th>
+                            <th>Họ và tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Email</th>
+                            <th>Giới tính</th>
+                            <th>Điểm tích lũy</th>
+                            <th>Ngày cập nhật</th>
+                            <th>Chức năng</th>
                         </tr>
-                    <?php
-                    endwhile;
-                    ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php
+                        while ($row = $result->fetch_array()) :
+                        ?>
+                            <tr>
+                                <td><?php echo $row["MA_KH"]; ?></td>
+                                <td><?php echo $row["HO_TEN"]; ?></td>
+                                <td><?php echo $row["NGAY_SINH"]; ?></td>
+                                <td><?php echo $row["DIEN_THOAI"]; ?></td>
+                                <td><?php echo $row["DIA_CHI"]; ?></td>
+                                <td><?php echo $row["EMAIL"]; ?></td>
+                                <td><?php if ($row["GIOI_TINH"] == 1) {
+                                        echo "Nam";
+                                    } else {
+                                        echo "Nữ";
+                                    } ?></td>
+                                <td><?php echo $row["TICH_DIEM"]; ?></td>
+                                <td><?php echo $row["NGAY_CAP_NHAT"]; ?></td>
+                                <td> <a href="admin-sua-user.php?MA_KH=<?php echo $row["MA_KH"]; ?>">
+                                        Sửa
+                                    </a>
+                                    <br>
+                                    <a href="data-table-user.php?MA_KH=<?php echo $row["MA_KH"]; ?>" onclick="if(confirm('Bạn có muốn xóa không')){return true;}else{return false;}">
+                                        Xóa
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php
+                        endwhile;
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    </form>
 </body>
 <?php
 //  xử lý với chức năng xóa
