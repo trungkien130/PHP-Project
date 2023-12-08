@@ -41,7 +41,7 @@
                 <button class="search_btn" type="submit">Tìm sách</button>
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
-            <div class="">
+            <div>
                 <button class="sigup_btn" onclick="sigup()">Đăng kí</button>
                 <button class="login_btn" onclick="login()">Đăng nhập</button>
                 <a class="thongtinkh" href="khachhang-profile.php">Thông tin khách hàng</a>
@@ -60,5 +60,7 @@
             <span class="Hotline">Hotline: 1900 6401</span>
             <i class="fa-solid fa-comments"></i>
             <a href="" class="supportOnl">Hỗ trợ trực tuyến</a>
-        </div>
     </nav>
+</body>
+
+</html>

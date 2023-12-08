@@ -60,7 +60,7 @@
             <div class="modal-content">
                 <span class="close" onclick="close_modal()">&times;</span>
                 <h2 class="titleModal">Đăng Nhập</h2>
-                <form class="login_content">
+                <div class="login_content">
                     <div class="input inputUsername">
                         <label for="username">Email:</label>
                         <input type="text" id="username" name="EMAIL" class="inputInFor" required><br>
@@ -73,7 +73,7 @@
                         <span class="registerUser">Chưa có tài khoản <button onclick="sigup()">Đăng kí ngay</button> </span>
                     </div>
                     <button type="submit" class="login_comfirm" name="login_btn" onclick="confirm_login()">Đăng Nhập</button>
-                </form>
+                </div>
             </div>
         </div>
     </form>

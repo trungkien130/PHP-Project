@@ -29,9 +29,9 @@
         $GIOI_TINH = $_POST["GIOI_TINH"];
 
         $sql_count = "SELECT COUNT(*) AS MA_KH FROM KHACHHANG";
-        $result = $conn->query($sql_count);
-        $row = $result->fetch_assoc();
-        $MA_KH = $row['MA_KH'] + 1;
+        $result_count = $conn->query($sql_count);
+        $row_count = $result_count->fetch_assoc();
+        $MA_KH = $row_count['MA_KH'] + 1;
 
         $sql_check = "SELECT EMAIL FROM khachhang WHERE EMAIL ='$EMAIL' ";
         $res_check = $conn->query($sql_check);
