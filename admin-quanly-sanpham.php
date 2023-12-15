@@ -21,6 +21,7 @@ if (isset($_GET["btnSearch"])) {
     }
 }
 $result = $conn->query($sql);
+
 ?>
 
 <body>
@@ -68,6 +69,7 @@ $result = $conn->query($sql);
                             <th>Giá cũ</th>
                             <th>Giá mới</th>
                             <th>Lượt mua</th>
+                            <th>Tình trạng sản phẩm</th>
                             <th>Ngày cập nhật</th>
                             <th>Chức năng</th>
                         </tr>
@@ -86,6 +88,9 @@ $result = $conn->query($sql);
                                 <td><?php echo $row["GIA_CU"]; ?></td>
                                 <td><?php echo $row["GIA_MOI"]; ?></td>
                                 <td><?php echo $row["LUOT_MUA"]; ?></td>
+                                <td> <?php
+                                        echo $row["TINHTRANG_SP"] > 0 ? "Còn hàng" : "Hết hàng";
+                                        ?> </td>
                                 <td><?php echo $row["NGAY_CAP_NHAT"]; ?></td>
                                 <td> <a href="admin-sua-sanpham.php?MA_SP=<?php echo $row["MA_SP"]; ?>">
                                         Sửa

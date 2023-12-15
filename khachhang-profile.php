@@ -12,22 +12,32 @@
 </head>
 <?php
 ob_start();
+session_start();
+
 include("ketnoi.php");
 require("header.php");
 require("dangki.php");
 require("dangnhap.php");
-if (isset($_GET["MA_KH"])) {
 
-    $MA_KH = $_GET["MA_KH"];
+$taikhoanValue = isset($_COOKIE['ma_kh']) ? $_COOKIE['ma_kh'] : null;
 
-    $sql_edit = "SELECT * FROM khachhang WHERE MA_KH = '$MA_KH' ";
+// Kiểm tra cookie
+if ($taikhoanValue !== null) {
+    // Thực hiện truy vấn SQL để kiểm tra sự tồn tại của MA_KH trong cơ sở dữ liệu
+    $sql_check_MA_KH = "SELECT * FROM khachhang WHERE MA_KH = '$taikhoanValue'";
+    $result_check_MA_KH = $conn->query($sql_check_MA_KH);
 
-    $result_edit = $conn->query($sql_edit);
-
-    $row_edit = $result_edit->fetch_array();
+    if ($result_check_MA_KH->num_rows > 0) {
+        // Lấy thông tin từ cơ sở dữ liệu và gán vào Session (nếu cần)
+        $row_edit = $result_check_MA_KH->fetch_assoc();
+        $isLoggedIn = true; // Flag to check if the user is logged in
+    }
 } else {
-    header("Location:webbansach.php");
+    // Người dùng không đăng nhập, chuyển hướng đến trang đăng nhập
+    header("Location: webbansach.php");
+    exit();
 }
+
 $sql = "SELECT * FROM khachhang WHERE 1=1";
 $res = $conn->query($sql);
 

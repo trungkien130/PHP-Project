@@ -20,7 +20,7 @@ $result = $conn->query($sql);
 
 <body>
     <div class="logout_button">
-        <button class="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        <a href="webbansach.php"><button class="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
     </div>
     <header>
         <div class="warpper">

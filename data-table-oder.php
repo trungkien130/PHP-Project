@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    <div class="logout_button">
+        <a href="webbansach.php"><button class="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
+    </div>
     <div class="warpper">
         <div class="logo">
             <a href="admin.php"><img src="img/logovnb.png" alt=""></a>

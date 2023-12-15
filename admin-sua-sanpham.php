@@ -14,10 +14,16 @@
 // Kết nối 
 include("ketnoi.php");
 // Đọc dữ liệu cần sửa 
+function updateProductStatus($conn)
+{
+    $sql_update_status = "UPDATE danhmucsach SET TINHTRANG_SP = CASE WHEN SL_TON > 0 THEN '1' ELSE '0' END";
+    $conn->query($sql_update_status);
+}
+
 if (isset($_GET["MA_SP"])) {
 
     $MA_SP = $_GET["MA_SP"];
-
+    updateProductStatus($conn);
     $sql_edit = "SELECT * FROM danhmucsach WHERE MA_SP = '$MA_SP' ";
     // thực thi câu lệnh truy vấn
     $result_edit = $conn->query($sql_edit);
@@ -123,6 +129,13 @@ if (isset($_POST["btnSubmit"])) {
                         <tr>
                             <td>Giá nhập </td>
                             <td><input class="edit_input" type="text" name="GIA_NHAP" id="GIA_NHAP" value="<?php echo $row_edit["GIA_NHAP"]; ?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Tình trạng sản phẩm </td>
+                            <td><input class="edit_input" type="text" name="GIA_NHAP" id="GIA_NHAP" value="<?php
+
+                                                                                                            echo $row_edit["TINHTRANG_SP"] > 0 ? "Còn hàng" : "Hết hàng";
+                                                                                                            ?>" readonly></td>
                         </tr>
                         <tr>
                             <td>Giá cũ </td>

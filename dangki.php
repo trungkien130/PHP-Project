@@ -51,44 +51,44 @@
     }
     ?>
     <form action="" method="post">
-        </div>
-        <div id="sigupModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="close_modal()">&times;</span>
-                <h2 class="titleModal">Đăng kí tài khoản</h2>
-                <div class="input nameInput">
-                    <label for="">Họ và Tên</label><input type="text" class="inputInFor" name="HO_TEN" required>
-                </div>
-                <div class="input passwordInput">
-                    <label for="">Mật khẩu</label><input type="password" class="inputInFor" name="MAT_KHAU" required>
-                </div>
-                <div class="input phoneInput">
-                    <label for="">Số điện thoại</label><input type="text" class="inputInFor" name="DIEN_THOAI" required>
-                </div>
-                <div class="input addrestInput">
-                    <label for="">Địa chỉ</label><input type="text" class="inputInFor" name="DIA_CHI" required>
-                </div>
-                <div class="input emailInput">
-                    <label for="">Email</label>
-                    <input type="email" name="EMAIL" class="inputInFor" required>
-                </div>
-                <div class="input borndateInput">
-                    <label for="">Ngày Sinh</label><input type="date" class="inputInFor" name="NGAYSINH" required>
-                </div>
-                <div class="input genderInput">
-                    <label for="">Giới tính</label>
-                    <input type="radio" name="GIOI_TINH" value="1">Nam
-                    <input type="radio" name="GIOI_TINH" value="0">Nữ
-                </div>
-                <div>
-                    <span class="userLogin">Đã có tài khoản <button onclick="login()">Đăng nhập</button> </span>
-                </div>
-                <div class="dangki_btn">
-                    <button type="submit" name="sigup_btn" onclick="sigupconfirm()" value="Đăng kí">Đăng kí</button>
+        <div>
+            <div id="sigupModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="close_modal()">&times;</span>
+                    <h2 class="titleModal">Đăng kí tài khoản</h2>
+                    <div class="input nameInput">
+                        <label for="">Họ và Tên</label><input type="text" class="inputInFor" name="HO_TEN" required>
+                    </div>
+                    <div class="input passwordInput">
+                        <label for="">Mật khẩu</label><input type="password" class="inputInFor" name="MAT_KHAU" required>
+                    </div>
+                    <div class="input phoneInput">
+                        <label for="">Số điện thoại</label><input type="text" class="inputInFor" name="DIEN_THOAI" required>
+                    </div>
+                    <div class="input addrestInput">
+                        <label for="">Địa chỉ</label><input type="text" class="inputInFor" name="DIA_CHI" required>
+                    </div>
+                    <div class="input emailInput">
+                        <label for="">Email</label>
+                        <input type="email" name="EMAIL" class="inputInFor" required>
+                    </div>
+                    <div class="input borndateInput">
+                        <label for="">Ngày Sinh</label><input type="date" class="inputInFor" name="NGAYSINH" required>
+                    </div>
+                    <div class="input genderInput">
+                        <label for="">Giới tính</label>
+                        <input type="radio" name="GIOI_TINH" value="1">Nam
+                        <input type="radio" name="GIOI_TINH" value="0">Nữ
+                    </div>
+                    <div>
+                        <span class="userLogin">Đã có tài khoản <button onclick="login()">Đăng nhập</button> </span>
+                    </div>
+                    <div class="dangki_btn">
+                        <button type="submit" name="sigup_btn" onclick="sigupconfirm()" value="Đăng kí">Đăng kí</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div>
     </form>
 </body>
 

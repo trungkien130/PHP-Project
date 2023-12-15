@@ -14,8 +14,11 @@
 <body>
 
     <?php
+    session_start();
     include("ketnoi.php");
+
     $error_message = "";
+
     if (isset($_POST["login_btn"])) {
         $EMAIL = $_POST["EMAIL"];
         $MAT_KHAU = $_POST["MAT_KHAU"];
@@ -33,13 +36,14 @@
             exit();
         } else {
             // kiểm tra trong bảng "khachhang" 
-            $sql_customer = "SELECT EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL = '$EMAIL' LIMIT 1";
+            $sql_customer = "SELECT MA_KH,EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL = '$EMAIL' LIMIT 1";
             $res_customer = $conn->query($sql_customer);
 
             if ($res_customer->num_rows > 0) {
                 $chk = $_POST['rmk'];
                 if (isset($chk)) {
                     setcookie('taikhoan', $EMAIL, time() + 60 * 60);
+                    $_SESSION['user'] = 'MA_KH';
                 }
                 header("Location: webbansach.php");
                 exit();
@@ -55,7 +59,7 @@
             alert("<?php echo $error_message ?>");
         </script>
     <?php endif; ?>
-    <form action="" method="post">
+    <form action="khachhang-profile.php" method="post">
         <div id="loginModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="close_modal()">&times;</span>

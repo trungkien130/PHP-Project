@@ -16,6 +16,3 @@ $(function () {
   }
 
 });
-const a=21
-document.getElementById("#myInput").id =a
-console.log(document.getElementById("myInput").id);
