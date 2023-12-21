@@ -32,6 +32,7 @@
                         <p class="detail_name"> <?php echo $row["TEN_SP"]; ?></p>
                         <p class="detail_price"> <?php echo $row["GIA_MOI"]; ?>Đ </p>
                         <p class="detail_product"> <?php echo $row["THONG_TIN"]; ?> </p>
+                        <p style="font-size: larger;">Số lượng: <?php echo $row["SL_TON"] ?></p>
                     </div>
                     <div class="addProductsToBuy">
                         <button class="addButton"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>

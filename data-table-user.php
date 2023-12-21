@@ -67,6 +67,7 @@ $result = $conn->query($sql);
                             <th>Điện thoại</th>
                             <th>Địa chỉ</th>
                             <th>Email</th>
+                            <th>Password</th>
                             <th>Giới tính</th>
                             <th>Điểm tích lũy</th>
                             <th>Ngày cập nhật</th>
@@ -84,6 +85,7 @@ $result = $conn->query($sql);
                                 <td><?php echo $row["DIEN_THOAI"]; ?></td>
                                 <td><?php echo $row["DIA_CHI"]; ?></td>
                                 <td><?php echo $row["EMAIL"]; ?></td>
+                                <td><?php echo $row["MAT_KHAU"]; ?></td>
                                 <td><?php if ($row["GIOI_TINH"] == 1) {
                                         echo "Nam";
                                     } else {

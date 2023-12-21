@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +16,8 @@
 </head>
 
 <body>
-
     <?php
-    session_start();
+
     include("ketnoi.php");
 
     $error_message = "";
@@ -23,7 +26,7 @@
         $EMAIL = $_POST["EMAIL"];
         $MAT_KHAU = $_POST["MAT_KHAU"];
 
-        // kiểm tra trong bảng "quantri" 
+        // Kiểm tra trong bảng "quantri" 
         $sql_admin = "SELECT EMAIL, MAT_KHAU FROM quantri WHERE EMAIL = '$EMAIL' LIMIT 1";
         $res_admin = $conn->query($sql_admin);
 
@@ -32,19 +35,30 @@
             if (isset($chk)) {
                 setcookie('taikhoan', $EMAIL, time() + 60 * 60);
             }
+            $user_info = array(
+                'username' => $EMAIL,
+                'password' => $MAT_KHAU
+            );
+            $_SESSION['user'] = $user_info;
             header("Location: admin.php");
             exit();
         } else {
-            // kiểm tra trong bảng "khachhang" 
-            $sql_customer = "SELECT MA_KH,EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL = '$EMAIL' LIMIT 1";
+            // Kiểm tra trong bảng "khachhang" 
+            $sql_customer = "SELECT MA_KH, EMAIL, MAT_KHAU FROM khachhang WHERE EMAIL = '$EMAIL' LIMIT 1";
             $res_customer = $conn->query($sql_customer);
 
             if ($res_customer->num_rows > 0) {
+                $row_customer = $res_customer->fetch_assoc();
+                $MA_KH = $row_customer['MA_KH'];
                 $chk = $_POST['rmk'];
                 if (isset($chk)) {
                     setcookie('taikhoan', $EMAIL, time() + 60 * 60);
-                    $_SESSION['user'] = 'MA_KH';
                 }
+                $user_info = array(
+                    'username' => $EMAIL,
+                    'password' => $MAT_KHAU
+                );
+                $_SESSION['user'] = $user_info;
                 header("Location: webbansach.php");
                 exit();
             } else {
@@ -53,12 +67,15 @@
         }
     }
     ?>
-
     <?php if (!empty($error_message)) : ?>
         <script>
             alert("<?php echo $error_message ?>");
         </script>
     <?php endif; ?>
+    <script>
+        // Hiển thị thông tin từ session ra console
+        console.log(<?php echo json_encode($_SESSION); ?>);
+    </script>
     <form action="khachhang-profile.php" method="post">
         <div id="loginModal" class="modal">
             <div class="modal-content">

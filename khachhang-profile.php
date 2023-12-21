@@ -19,17 +19,17 @@ require("header.php");
 require("dangki.php");
 require("dangnhap.php");
 
-$taikhoanValue = isset($_COOKIE['ma_kh']) ? $_COOKIE['ma_kh'] : null;
+if (isset($_SESSION['user'])) {
+    $email = $_SESSION['user']['email'];
+    $mat_khau = $_SESSION['user']['password'];
 
-// Kiểm tra cookie
-if ($taikhoanValue !== null) {
-    // Thực hiện truy vấn SQL để kiểm tra sự tồn tại của MA_KH trong cơ sở dữ liệu
-    $sql_check_MA_KH = "SELECT * FROM khachhang WHERE MA_KH = '$taikhoanValue'";
-    $result_check_MA_KH = $conn->query($sql_check_MA_KH);
+    // Thực hiện truy vấn SQL để lấy thông tin của người dùng từ cơ sở dữ liệu
+    $sql_get_user_info = "SELECT * FROM khachhang WHERE EMAIL = '$email' AND MAT_KHAU = '$mat_khau'";
+    $result_get_user_info = $conn->query($sql_get_user_info);
 
-    if ($result_check_MA_KH->num_rows > 0) {
-        // Lấy thông tin từ cơ sở dữ liệu và gán vào Session (nếu cần)
-        $row_edit = $result_check_MA_KH->fetch_assoc();
+    if ($result_get_user_info->num_rows > 0) {
+        // Lấy thông tin từ cơ sở dữ liệu và gán vào biến $row_edit
+        $row_edit = $result_get_user_info->fetch_assoc();
         $isLoggedIn = true; // Flag to check if the user is logged in
     }
 } else {
@@ -46,21 +46,20 @@ if (isset($_POST["change_comfirm"])) {
     $MA_KH = $_POST["MA_KH"];
     $HO_TEN = $_POST["HO_TEN"];
     $MAT_KHAU = $_POST["MAT_KHAU"];
+    $DIEN_THOAI = $_POST["DIEN_THOAI"];
     $EMAIL = $_POST["EMAIL"];
-    $DIA_CHI = $_POST["DIA_CHI"];
     $NGAY_SINH = $_POST["NGAY_SINH"];
     $GIOI_TINH = $_POST["GIOI_TINH"];
 
     $sql_update = "UPDATE khachhang SET ";
     $sql_update .= "HO_TEN = '$HO_TEN', ";
     $sql_update .= "MAT_KHAU = '$MAT_KHAU', ";
+    $sql_update .= "DIEN_THOAI = '$DIEN_THOAI', ";
     $sql_update .= "EMAIL = '$EMAIL', ";
-    $sql_update .= "DIA_CHI = '$DIA_CHI', ";
     $sql_update .= "NGAY_SINH = '$NGAY_SINH', ";
     $sql_update .= "GIOI_TINH = '$GIOI_TINH', ";
     $sql_update .= "NGAY_CAP_NHAT = NOW() ";
     $sql_update .= "WHERE MA_KH = '$MA_KH'";
-
 
     if ($conn->query($sql_update)) {
         header("Location:data-table-user.php");
