@@ -13,7 +13,17 @@
 
 
 <body>
+    <?php
+    // webbansach.php
+    session_start();
 
+    if (isset($_GET["act"]) && ($_GET["act"] == "logout")) {
+        unset($_SESSION['user_name'], $_SESSION['password']);
+        // Optional: Redirect to another page if needed
+        // header('Location: another_page.php');
+        exit(); // Make sure to exit after the header redirect
+    }
+    ?>
     <?php
     include("ketnoi.php");
     require("dangki.php");
@@ -104,6 +114,7 @@
                                 <a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>"><img class="productsImg" src="img/<?php echo $row["IMG_SP"]; ?> " alt=""></a>
                                 <p class="productsName"><a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>">Tên: <?php echo $row["TEN_SP"]; ?></a> </p>
                                 <p class="productsPrice">Giá: <?php echo $row["GIA_MOI"]; ?> </p>
+                                <p>Số lượng: <?php echo $row["SL_TON"] ?></p>
 
                             </div>
 

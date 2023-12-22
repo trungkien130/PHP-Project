@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
     <title>Vivabook.com</title>
 </head>
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
 
 <body>
     <?php
@@ -29,6 +34,13 @@
     //3. Thực thi câu lệnh truy vấn
     $result = $conn->query($sql);
     //4. duyệt và hiển thị -> tblLTK
+
+    ?>
+    <?php
+    if (isset($_GET["act"]) && ($_GET["act"] == "logout")) {
+        unset($_SESSION['user_name'], $_SESSION['password']);
+        header('Location: webbansach.php');
+    }
     ?>
     <header>
         <div>
@@ -42,9 +54,14 @@
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
             <div>
-                <button class="sigup_btn" onclick="sigup()">Đăng kí</button>
-                <button class="login_btn" onclick="login()">Đăng nhập</button>
-                <a class="thongtinkh" href="khachhang-profile.php">Thông tin khách hàng</a>
+                <?php if (isset($_SESSION['user_name']) && ($_SESSION['password']) != "") {
+                    echo '<a id="thongtinkhLink" class="thongtinkh" href="khachhang-profile.php">Thông tin khách hàng</a>';
+                    echo '<a id="logoutBtn" class="logoutBtn" href="dangnhap.php"?act=logout>Đăng xuất</a>';
+                } else {
+                    echo '<button id="signupBtn" class="sigup_btn" onclick="sigup()">Đăng kí</button>';
+                    echo '<button id="loginBtn" class="login_btn" onclick="login()">Đăng nhập</button>';
+                }
+                ?>
             </div>
         </div>
     </header>

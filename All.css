@@ -154,7 +154,7 @@ nav {
 .thongtinkh {
     position: absolute;
     top: 2rem;
-    left: 85%;
+    left: 75%;
     color: #0f0f0f;
     padding: 0 6px;
     line-height: 12px;
@@ -165,7 +165,19 @@ nav {
     cursor: pointer;
     text-decoration: none;
 }
-
+.logoutBtn{
+    border: none;
+    background-color: #fff;
+    color: black;
+    position: absolute;
+    top: 37%;
+    left: 88%;
+    
+}
+.logoutBtn:hover{
+    color: red;
+    cursor: pointer;
+}
 .thongtinkh:hover {
     color: red;
 }
@@ -375,7 +387,7 @@ label {
 .profile-show {
     position: absolute;
     width: 55%;
-    height: 80%;
+    height: 90%;
     padding: 10px 50px 20px 30px;
     top: 9rem;
     left: 10rem;
@@ -399,7 +411,7 @@ label {
 .change_btn {
     position: relative;
     top: 1rem;
-    margin-left: 85%;
+    margin-left: 80%;
 }
 
 /* thay đổi thông tin khách hàng */
