@@ -40,7 +40,6 @@ header {
     background-color: #fff;
     padding: 20px 10px 8px 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Optional: Add a subtle shadow */
     transition: background-color 0.3s ease
 }
 
@@ -365,11 +364,11 @@ label {
     display: none;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 50%;
     left: 16.6rem;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 30px;
-    border: 1px solid #ccc;
+    border: 1px solid black;
 }
 
 .menu-item:hover {
@@ -542,6 +541,9 @@ label {
     box-shadow: 0 0 0.5rem black;
     transition: all 0.3s ease;
 }
+.Products:hover .addToCart{
+    display: inline-block;
+}
 
 /* danh sách sản phẩm */
 /* Nhận thông báo về sách mới */
@@ -664,7 +666,7 @@ label {
     top: 10rem;
     border: 1px solid black;
     width: 90%;
-    height: 90%;
+    height: 100%;
 }
 .detail_products_content{
     position: absolute;
@@ -714,3 +716,34 @@ label {
     background-color: #f5da88;
 }
 /* chi tiết sản phẩm */
+/* giỏ hàng */
+.cartModal{
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 75%;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    overflow: auto;
+    background-color: #fff;
+}
+.cartOpen{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.closeCartModal{
+    position: absolute;
+    top:0;
+    left: 90%;
+    cursor: pointer;
+}
+.cartTitle{
+    font-size: 20px;
+    margin-left: 15px;
+}
+.cartHeader{
+    border-bottom:1px solid black ;
+}
+/* giỏ hàng */

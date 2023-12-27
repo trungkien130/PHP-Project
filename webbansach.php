@@ -8,20 +8,23 @@
     <script src="profile.js"></script>
     <link rel="stylesheet" href="All.css">
     <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="shortcut icon" href="img/tải xuống.ico" type="image/png">
     <title>Vivabook.com</title>
 </head>
 
 
 <body>
-    <?php
-    // webbansach.php
-    session_start();
 
-    if (isset($_GET["act"]) && ($_GET["act"] == "logout")) {
-        unset($_SESSION['user_name'], $_SESSION['password']);
-        // Optional: Redirect to another page if needed
-        // header('Location: another_page.php');
-        exit(); // Make sure to exit after the header redirect
+    <?php
+    session_start();
+    ?>
+    <?php
+    if (isset($_GET['act']) && $_GET['act'] == 'logout') {
+        if (isset($_SESSION['user_name']) && isset($_SESSION['password']) && $_SESSION['user_name'] !== "" && $_SESSION['password'] !== "") {
+            session_destroy();
+            header("Location: webbansach.php");
+            exit();
+        }
     }
     ?>
     <?php
@@ -29,6 +32,7 @@
     require("dangki.php");
     require("dangnhap.php");
     require("header.php");
+    require("gio-hang.php");
     $sql = "SELECT * FROM `danhmucsach` WHERE 1=1 ";
     $result = $conn->query($sql);
     ?>
@@ -101,6 +105,7 @@
         </div>
     </div>
     <div>
+
         <h1>Danh sách sản phẩm</h1>
         <form action="" method="post">
             <div class="listProducts">
@@ -108,15 +113,14 @@
                 while ($row = $result->fetch_array()) :
                 ?>
                     <div class="product">
+                        <div class="Products">
 
-                        <a href="">
-                            <div class="Products">
-                                <a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>"><img class="productsImg" src="img/<?php echo $row["IMG_SP"]; ?> " alt=""></a>
-                                <p class="productsName"><a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>">Tên: <?php echo $row["TEN_SP"]; ?></a> </p>
-                                <p class="productsPrice">Giá: <?php echo $row["GIA_MOI"]; ?> </p>
-                                <p>Số lượng: <?php echo $row["SL_TON"] ?></p>
+                            <a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>"><img class="productsImg" src="img/<?php echo $row["IMG_SP"]; ?> " alt=""></a>
+                            <p class="productsName"><a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>">Tên: <?php echo $row["TEN_SP"]; ?></a> </p>
+                            <p class="productsPrice">Giá: <?php echo $row["GIA_MOI"]; ?> </p>
+                            <p>Số lượng: <?php echo $row["SL_TON"] ?></p>
 
-                            </div>
+                        </div>
 
                     </div>
                 <?php

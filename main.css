@@ -251,3 +251,55 @@ th,td{
 .edit_reset:hover{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
+.adminLogin{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url(img/background.jfif);
+    background-repeat: no-repeat;
+
+}
+.adminLoginModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    top: 10%;
+    height: 60%;
+    left:35%;
+    position: absolute; 
+    border: 1px solid black;
+
+}
+.adminLoginModal input{
+    padding: 12px;  
+    width: 65%;
+
+}
+.adminLoginBtn{
+    margin-top: 15px;
+    padding: 10px;
+    width: 40%;
+    border: none;
+    background-color:#35ac17da ;
+    color: white;
+}
+.fa-user ,.fa-lock-open{
+    color: black;
+    position: relative;
+    top: 30px;
+    margin-left: 60%;
+}
+.goBack{
+    text-decoration: none;
+    margin-top: 10px;
+    color: white;
+}
+.goBack:hover{
+    color: red;
+}
+.adminLoginTitle{
+    color: #fff;
+    font-size: 30px;
+}

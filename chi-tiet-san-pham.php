@@ -17,6 +17,7 @@
     require("dangki.php");
     require("dangnhap.php");
     require("header.php");
+    require("gio-hang.php");
     $sql = "SELECT * FROM `danhmucsach` WHERE MA_SP =  " . $_GET['id'];
     $result = $conn->query($sql);
     ?>
@@ -25,23 +26,24 @@
         while ($row = $result->fetch_array()) :
         ?>
             <div>
+                <form action="" method="post">
+                    <div class="detail_products">
+                        <img class="detail_img" src="img/<?php echo $row["IMG_SP"]; ?> " alt="">
+                        <div class="detail_products_content">
+                            <p class="detail_name"> <?php echo $row["TEN_SP"]; ?></p>
+                            <p class="detail_price"> <?php echo $row["GIA_MOI"]; ?>Đ </p>
+                            <p class="detail_product"> <?php echo $row["THONG_TIN"]; ?> </p>
+                            <p style="font-size: larger;">Số lượng: <?php echo $row["SL_TON"] ?></p>
+                        </div>
+                        <div class="addProductsToBuy">
+                            <button class="addButton" name="addToCart"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
+                            <button class="buyButton"> Mua hàng</button>
+                        </div>
 
-                <div class="detail_products">
-                    <img class="detail_img" src="img/<?php echo $row["IMG_SP"]; ?> " alt="">
-                    <div class="detail_products_content">
-                        <p class="detail_name"> <?php echo $row["TEN_SP"]; ?></p>
-                        <p class="detail_price"> <?php echo $row["GIA_MOI"]; ?>Đ </p>
-                        <p class="detail_product"> <?php echo $row["THONG_TIN"]; ?> </p>
-                        <p style="font-size: larger;">Số lượng: <?php echo $row["SL_TON"] ?></p>
                     </div>
-                    <div class="addProductsToBuy">
-                        <button class="addButton"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</button>
-                        <button class="buyButton"> Mua hàng</button>
-                    </div>
-
-                </div>
 
             </div>
+            </form>
         <?php
         endwhile;
         ?>

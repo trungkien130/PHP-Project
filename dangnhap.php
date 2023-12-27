@@ -30,21 +30,25 @@ if (!isset($_SESSION)) {
         $res_check_khachhang = $conn->query($sql_check_khachhang);
 
         if ($res_check_khachhang->num_rows > 0) {
-            $_SESSION['user_name'] = $EMAIL;
-            $_SESSION['password'] = $MAT_KHAU;
-            if (isset($chk)) {
-                setcookie('taikhoan', $EMAIL, time() + 60 * 60);
+            $row = $res_check_khachhang->fetch_assoc();
+            if ($row['MAT_KHAU'] === $MAT_KHAU) {
+                $_SESSION['user_name'] = $EMAIL;
+                $_SESSION['password'] = $MAT_KHAU;
+                if (isset($chk)) {
+                    setcookie('taikhoan', $EMAIL, time() + 60 * 60);
+                }
+                header("Location: webbansach.php");
+                exit();
             }
-            header("Location: webbansach.php");
         } else {
-            $error_message = "Sai mật khẩu hoặc tên đăng nhập không tồn tại vui lòng kiểm tra lại!!";
+            $error_message = "Sai mật khẩu hoặc email. Vui lòng kiểm tra lại!";
         }
     }
     ?>
 
     <?php if (!empty($error_message)) : ?>
         <script>
-            alert(<?php echo ("$error_message") ?>)
+            alert("<?php echo $error_message; ?>")
         </script>
     <?php endif; ?>
     <form action="" method="post">

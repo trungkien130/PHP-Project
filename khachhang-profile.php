@@ -19,7 +19,7 @@ include("ketnoi.php");
 require("header.php");
 require("dangki.php");
 require("dangnhap.php");
-
+require("gio-hang.php");
 if (isset($_SESSION['user_name'])) {
     $EMAIL = $_SESSION['user_name'];
     $MAT_KHAU = $_SESSION['password'];
@@ -61,7 +61,7 @@ if (isset($_POST["change_comfirm"])) {
     $sql_update .= "WHERE MA_KH = '$MA_KH'";
 
     if ($conn->query($sql_update)) {
-        header("Location:data-table-user.php");
+        header("Location:khachhang-profile.php");
     } else {
         $error_message = "Lỗi sửa dữ liệu!" . mysqli_errno($conn);
     }

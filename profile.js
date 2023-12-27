@@ -14,4 +14,11 @@ $(function () {
     $("#sigupModal").show()
     $("#loginModal").hide()
   }
+    cartOpen =function(){
+      $("#cartModal").show()
+
+    }
+    cartClose=function(){
+      $("#cartModal").hide()
+    }
 });

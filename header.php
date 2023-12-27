@@ -1,3 +1,15 @@
+<?php
+if (isset($_GET['act']) && $_GET['act'] == 'logout') {
+    // Unset all session variables
+    $_SESSION = array();
+
+    // Destroy the session
+    session_destroy();
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +24,9 @@
     <title>Vivabook.com</title>
 </head>
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
+ob_start();
 ?>
+
 
 <body>
     <?php
@@ -36,12 +47,7 @@ if (!isset($_SESSION)) {
     //4. duyệt và hiển thị -> tblLTK
 
     ?>
-    <?php
-    if (isset($_GET["act"]) && ($_GET["act"] == "logout")) {
-        unset($_SESSION['user_name'], $_SESSION['password']);
-        header('Location: webbansach.php');
-    }
-    ?>
+
     <header>
         <div>
             <div>
@@ -51,12 +57,12 @@ if (!isset($_SESSION)) {
                 <input class="searchItem" type="search" id="keyword" placeholder="Tìm kiếm tựa sách, tác giả" />
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <button class="search_btn" type="submit">Tìm sách</button>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <button onclick="cartOpen()" class="cartOpen"><i class="fa-solid fa-cart-shopping"></i></button>
             </div>
             <div>
                 <?php if (isset($_SESSION['user_name']) && ($_SESSION['password']) != "") {
                     echo '<a id="thongtinkhLink" class="thongtinkh" href="khachhang-profile.php">Thông tin khách hàng</a>';
-                    echo '<a id="logoutBtn" class="logoutBtn" href="dangnhap.php"?act=logout>Đăng xuất</a>';
+                    echo '<a id="logoutBtn" class="logoutBtn" href="?act=logout"  ">Đăng xuất</a>';
                 } else {
                     echo '<button id="signupBtn" class="sigup_btn" onclick="sigup()">Đăng kí</button>';
                     echo '<button id="loginBtn" class="login_btn" onclick="login()">Đăng nhập</button>';
@@ -79,5 +85,8 @@ if (!isset($_SESSION)) {
             <a href="" class="supportOnl">Hỗ trợ trực tuyến</a>
     </nav>
 </body>
+<?php
+ob_flush();
+?>
 
 </html>

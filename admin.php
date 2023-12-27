@@ -12,11 +12,24 @@
 </head>
 <?php
 include "ketnoi.php";
+session_start();
+?>
+<?php
+
+if (!isset($_SESSION['TAI_KHOAN']) || !isset($_SESSION['MAT_KHAU'])) {
+    header("Location: admin-dangnhap.php");
+    exit();
+}
+if (isset($_GET["action"]) && ($_GET["action"] == "adminLogout")) {
+    unset($_SESSION['TAI_KHOAN'], $_SESSION['MAT_KHAU']);
+    header("Location: admin-dangnhap.php");
+    exit();
+}
 ?>
 
 <body>
     <div class="logout_button">
-        <button class="Logout"><a href="webbansach.php"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></button>
+        <button class="Logout"><a href="admin-dangnhap.php?action=adminLogout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></button>
     </div>
     <div class="warpper">
         <div class="logo">
