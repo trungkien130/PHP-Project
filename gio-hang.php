@@ -11,38 +11,31 @@
 </head>
 
 <?php
-session_start();
-include("ketnoi.php");
-if (!isset($_SESSION['addToCart']))
-    $_SESSION['addToCart'] = [];
+if (!isset($_SESSION['cart']))
+    $_SESSION['cart'] = [];
 if (isset($_GET['delid']) && ($_GET['delid'] >= 0)) {
-    array_splice($_SESSION['addToCart'], $_GET['delid'], 1);
+    array_splice($_SESSION['cart'], $_GET['delid'], 1);
 }
-if (isset($_POST['btncart']) && ($_POST['btncart'])) {
-    $anh = $_POST['anh'];
-    $tensp = $_POST['tensp'];
-    $GIAMGIA_TMD = $_POST['giamgia'];
-    if ($GIAMGIA_TMD == 1) {
-        $GIABAN_TMD = $_POST['giadagiam'];
-    } else {
-        $GIABAN_TMD = $_POST['giaban'];
-    }
-    $soluong = $_POST['soluong'];
+if (isset($_POST['addToCart']) && ($_POST['addToCart'])) {
+    $anh = $_POST['IMG_SP'];
+    $tensp = $_POST['TEN_SP'];
+    $GIABAN_TMD = $_POST['GIA_MOI'];
+    $soluong = $_POST['SL_TON'];
     $fl = 0;
-    for ($i = 0; $i < sizeof($_SESSION['addToCart']); $i++) {
+    for ($i = 0; $i < sizeof($_SESSION['cart']); $i++) {
 
-        if ($_SESSION['addToCart'][$i][1] == $tensp) {
+        if ($_SESSION['cart'][$i][1] == $tensp) {
             $fl = 1;
-            $soluongnew = $soluong + $_SESSION['addToCart'][$i][3];
-            $_SESSION['addToCart'][$i][3] = $soluongnew;
+            $soluongnew = $soluong + $_SESSION['cart'][$i][3];
+            $_SESSION['cart'][$i][3] = $soluongnew;
             break;
         }
     }
     if ($fl == 0) {
         $sp = [$anh, $tensp, $GIABAN_TMD, $soluong];
-        $_SESSION['addToCart'][] = $sp;
+        $_SESSION['cart'][] = $sp;
     }
-    header('Location:cart_products_tmd.php');
+    header('Location:webbansach.php');
 }
 ?>
 
@@ -53,11 +46,16 @@ if (isset($_POST['btncart']) && ($_POST['btncart'])) {
             <p onclick="cartClose()" class="closeCartModal">X</p>
             <p class="cartTitle">Giỏ hàng</p>
         </div>
-        <div class="detail_products_content">
-            <p> <?php echo $row["TEN_SP"]; ?></p>
-            <p> <?php echo $row["GIA_MOI"]; ?>Đ </p>
-            <p>Số lượng: <?php echo $row["SL_TON"] ?></p>
-        </div>
+        <?php foreach ($_SESSION['cart'] as $cartItem) : ?>
+            <div class="detail_products_cart">
+                <img class="cartImg" src="img/<?php echo $cartItem[0]; ?>" alt="">
+                <div class="contentCartInfor">
+                    <p class="nameProductInCart"><?php echo $cartItem[1]; ?></p>
+                    <p class="priceProductInCart">Giá bán: <?php echo $cartItem[2]; ?></p>
+                    <p>Số lượng: <?php echo $cartItem[3]; ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
         <div>
 
         </div>

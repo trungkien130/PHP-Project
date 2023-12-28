@@ -30,11 +30,10 @@ if (isset($_SESSION['user_name'])) {
 
     if ($result_get_user_info->num_rows > 0) {
         $row_edit = $result_get_user_info->fetch_assoc();
-        $isLoggedIn = true;
     }
 } else {
-    // header("Location: webbansach.php");
-    // exit();
+    header("Location: webbansach.php");
+    exit();
 }
 
 $sql = "SELECT * FROM khachhang WHERE 1=1";

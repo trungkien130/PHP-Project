@@ -114,7 +114,7 @@
                 ?>
                     <div class="product">
                         <div class="Products">
-
+                            <p name="addToCart" class="addToCart">Thêm vào giỏ hàng</p>
                             <a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>"><img class="productsImg" src="img/<?php echo $row["IMG_SP"]; ?> " alt=""></a>
                             <p class="productsName"><a href="chi-tiet-san-pham.php?id=<?php echo $row["MA_SP"]; ?>">Tên: <?php echo $row["TEN_SP"]; ?></a> </p>
                             <p class="productsPrice">Giá: <?php echo $row["GIA_MOI"]; ?> </p>

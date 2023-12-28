@@ -511,7 +511,10 @@ label {
     flex-wrap: wrap;
     gap: 20px;
 }
-
+.productsImg{
+    width: 115px;
+    height: 165px;
+}
 .Products {
     cursor: pointer;
     width: 210px;
@@ -541,8 +544,18 @@ label {
     box-shadow: 0 0 0.5rem black;
     transition: all 0.3s ease;
 }
+.addToCart{
+    position: absolute;
+    display: none;
+    top: 38%;
+    margin-left: 26px;
+    padding: 10px;
+    background-color:#e1af04;
+}
 .Products:hover .addToCart{
-    display: inline-block;
+    display: block;
+    background-color: #f8d772;
+cursor: pointer;
 }
 
 /* danh sách sản phẩm */
@@ -670,7 +683,7 @@ label {
 }
 .detail_products_content{
     position: absolute;
-    top: 0;
+    top:10%;
     left: 44%;
 }
 .detail_img{
@@ -689,6 +702,8 @@ label {
 .detail_product{
     font-size: large;
     font-weight: 300;
+    overflow-y: auto;
+    max-height: 200px;
 }
 .addProductsToBuy{
     position: absolute;
@@ -721,9 +736,9 @@ label {
     display: none;
     position: fixed;
     z-index: 3;
-    left: 75%;
+    left: 70%;
     top: 0;
-    width: 25%;
+    width: 30%;
     height: 100%;
     overflow: auto;
     background-color: #fff;
@@ -745,5 +760,29 @@ label {
 }
 .cartHeader{
     border-bottom:1px solid black ;
+}
+.cartImg{
+    margin-top:15px;
+    width: 110px;
+}
+.contentCartInfor{
+    width: 248px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 100%;
+    top: -10px;
+    padding: 10px;
+}
+.nameProductInCart{
+    font-size: 16px;
+}
+.priceProductInCart{
+    color: red;
+}
+.detail_products_cart{
+    position: absolute;
+    top:10%;
+    left: 0%;
 }
 /* giỏ hàng */
